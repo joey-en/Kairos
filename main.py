@@ -15,6 +15,9 @@ scenes_with_frames = sample_frames(
     num_frames=2,
     output_dir="./output/frames",
 )
+# Has these errors (we need to check why):
+# [h264 @ 000002602f6b6600] mmco: unref short failure
+# [h264 @ 000002602fc03780] mmco: unref short failure
 
 captioned_scenes = caption_frames(
     scenes=scenes_with_frames,
@@ -25,17 +28,17 @@ captioned_scenes = caption_frames(
     prompt="a video frame of"
 )
 
-# refined_scenes = refine_caption_frames(
-#     scenes=captioned_scenes,
-#     num_prev=1,
-#     num_next=1,
-#     extra_instruction=(
-#         "Using the image and these captions as temporal context, "
-#         "write ONE concise sentence describing what is happening "
-#         "in this frame, focusing on new details or clarifications."
-#     ),
-#     do_sample=False,
-#     debug=True,
-# )
+refined_scenes = refine_caption_frames(
+    scenes=captioned_scenes,
+    num_prev=1,
+    num_next=1,
+    extra_instruction=(
+        "Using the image and these captions as temporal context, "
+        "write ONE concise sentence describing what is happening "
+        "in this frame, focusing on new details or clarifications."
+    ),
+    do_sample=False,
+    debug=True,
+)
 
 see_first_scene(refined_scenes)
