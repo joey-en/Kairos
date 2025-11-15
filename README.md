@@ -1,14 +1,32 @@
-# YOLO-Only Video Scene Analysis
+# ===============================================
+# Note to avoid future compatibility issues: 
+# (1) Use a virtual environment.
+# (2) Please add version numbers when adding new packages.
+# ===============================================
 
-This branch implements a **YOLO-only pipeline** for video scene analysis.
+# General Utils
+numpy>=1.26,<2
 
-## Pipeline
+# General Video Processing
+opencv-python>=4.7 # OpenCV for video processing
+scenedetect>=0.6   # PySceneDetect
 
-1. Scene detection using `scenedetect`.
-2. Frame sampling from each scene.
-3. YOLOv8 inference on each sampled frame.
+# Light Captioning - BLIP 
+torch==2.9.1
+transformers==4.57.1
+Pillow==12.0.0
 
-## Requirements
+# Heavy Captioning - InternLM-XComposer2
+sentencepiece==0.2.1
+torchvision==0.24.1
+einops==0.8.1
 
-```bash
-pip install -r requirements.txt
+# YOLOv8
+ultralytics>=8.0.100
+
+# Monitoring & metrics
+psutil>=5.9.0
+tqdm>=4.66.0
+
+# LLM / OpenAI client
+openai>=1.33.0

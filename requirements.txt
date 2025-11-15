@@ -4,9 +4,32 @@
 # (2) Please add version numbers when adding new packages.
 # ===============================================
 
-# YOLO-only branch requirements
+# General Utils
 numpy>=1.26,<2
-opencv-python>=4.7
-scenedetect>=0.6
-ultralytics==8.3.50
-psutil>=5.9
+
+# General Video Processing
+opencv-python>=4.7      # OpenCV for video processing
+scenedetect>=0.6        # PySceneDetect
+
+# Light Captioning - BLIP 
+torch==2.9.1
+transformers==4.57.1
+Pillow==12.0.0
+
+# Heavy Captioning - InternLM-XComposer2
+sentencepiece==0.2.1
+torchvision==0.24.1
+einops==0.8.1
+
+# YOLOv8
+ultralytics>=8.0.100
+
+# Monitoring & metrics
+psutil>=5.9.0
+tqdm>=4.66.0
+
+# LLM / Gemini API
+google-genai>=1.0.0
+
+# loading .env variables
+python-dotenv>=1.0.0
