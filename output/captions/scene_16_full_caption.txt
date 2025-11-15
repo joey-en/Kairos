@@ -1,0 +1,1 @@
+BLIP: a video frame of person speaking at a podium a video frame of a woman speaking at a podium with a microphone in front of her + AST: Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Sigh, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Applause

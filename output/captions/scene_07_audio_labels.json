@@ -1,0 +1,37 @@
+[
+  {
+    "clip_index": 0,
+    "start_sec": 0.0,
+    "end_sec": 2.0,
+    "labels": [
+      "Speech",
+      "Narration, monologue"
+    ],
+    "scores": [
+      0.7626736760139465,
+      0.3689066469669342
+    ]
+  },
+  {
+    "clip_index": 1,
+    "start_sec": 2.0,
+    "end_sec": 4.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.5299637913703918
+    ]
+  },
+  {
+    "clip_index": 2,
+    "start_sec": 4.0,
+    "end_sec": 4.07075,
+    "labels": [
+      "Music"
+    ],
+    "scores": [
+      0.45278167724609375
+    ]
+  }
+]

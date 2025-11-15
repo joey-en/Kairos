@@ -1,0 +1,1 @@
+BLIP: a video frame of a woman in a red sari a video frame of a woman speaking at a rally + AST: Speech, Speech, Music

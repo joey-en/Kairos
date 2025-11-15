@@ -1,0 +1,237 @@
+[
+  {
+    "clip_index": 0,
+    "start_sec": 0.0,
+    "end_sec": 2.0,
+    "labels": [
+      "Applause"
+    ],
+    "scores": [
+      0.656896710395813
+    ]
+  },
+  {
+    "clip_index": 1,
+    "start_sec": 2.0,
+    "end_sec": 4.0,
+    "labels": [
+      "Speech",
+      "Applause"
+    ],
+    "scores": [
+      0.6067717671394348,
+      0.3773815631866455
+    ]
+  },
+  {
+    "clip_index": 2,
+    "start_sec": 4.0,
+    "end_sec": 6.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6172693967819214
+    ]
+  },
+  {
+    "clip_index": 3,
+    "start_sec": 6.0,
+    "end_sec": 8.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6304575800895691
+    ]
+  },
+  {
+    "clip_index": 4,
+    "start_sec": 8.0,
+    "end_sec": 10.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6252663135528564
+    ]
+  },
+  {
+    "clip_index": 5,
+    "start_sec": 10.0,
+    "end_sec": 12.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6661945581436157
+    ]
+  },
+  {
+    "clip_index": 6,
+    "start_sec": 12.0,
+    "end_sec": 14.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6396574378013611
+    ]
+  },
+  {
+    "clip_index": 7,
+    "start_sec": 14.0,
+    "end_sec": 16.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.5992405414581299
+    ]
+  },
+  {
+    "clip_index": 8,
+    "start_sec": 16.0,
+    "end_sec": 18.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.5608031749725342
+    ]
+  },
+  {
+    "clip_index": 9,
+    "start_sec": 18.0,
+    "end_sec": 20.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.7650560140609741
+    ]
+  },
+  {
+    "clip_index": 10,
+    "start_sec": 20.0,
+    "end_sec": 22.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6536650657653809
+    ]
+  },
+  {
+    "clip_index": 11,
+    "start_sec": 22.0,
+    "end_sec": 24.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6681749820709229
+    ]
+  },
+  {
+    "clip_index": 12,
+    "start_sec": 24.0,
+    "end_sec": 26.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6837295889854431
+    ]
+  },
+  {
+    "clip_index": 13,
+    "start_sec": 26.0,
+    "end_sec": 28.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.5767977237701416
+    ]
+  },
+  {
+    "clip_index": 14,
+    "start_sec": 28.0,
+    "end_sec": 30.0,
+    "labels": [
+      "Speech",
+      "Narration, monologue"
+    ],
+    "scores": [
+      0.7175995111465454,
+      0.3163739740848541
+    ]
+  },
+  {
+    "clip_index": 15,
+    "start_sec": 30.0,
+    "end_sec": 32.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6646549105644226
+    ]
+  },
+  {
+    "clip_index": 16,
+    "start_sec": 32.0,
+    "end_sec": 34.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.7638171911239624
+    ]
+  },
+  {
+    "clip_index": 17,
+    "start_sec": 34.0,
+    "end_sec": 36.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.5837020874023438
+    ]
+  },
+  {
+    "clip_index": 18,
+    "start_sec": 36.0,
+    "end_sec": 38.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.7553861141204834
+    ]
+  },
+  {
+    "clip_index": 19,
+    "start_sec": 38.0,
+    "end_sec": 40.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6818625330924988
+    ]
+  },
+  {
+    "clip_index": 20,
+    "start_sec": 40.0,
+    "end_sec": 41.97525,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.6493390202522278
+    ]
+  }
+]

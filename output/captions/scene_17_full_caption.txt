@@ -1,0 +1,1 @@
+BLIP: a video frame of a woman speaking at a podium a video frame of a crowd of people clapping + AST: Applause, Applause

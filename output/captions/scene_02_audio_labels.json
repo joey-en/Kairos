@@ -1,0 +1,31 @@
+[
+  {
+    "clip_index": 0,
+    "start_sec": 0.0,
+    "end_sec": 2.0,
+    "labels": [
+      "Applause"
+    ],
+    "scores": [
+      0.6555837988853455
+    ]
+  },
+  {
+    "clip_index": 1,
+    "start_sec": 2.0,
+    "end_sec": 4.0,
+    "labels": [
+      "Applause"
+    ],
+    "scores": [
+      0.6403435468673706
+    ]
+  },
+  {
+    "clip_index": 2,
+    "start_sec": 4.0,
+    "end_sec": 4.037375,
+    "labels": [],
+    "scores": []
+  }
+]

@@ -1,0 +1,1 @@
+BLIP: a video frame of a woman wearing a pink scarf a video frame of a woman wearing a pink shawl and standing at a podium + AST: Applause, Speech, Applause, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Speech, Narration, monologue, Speech, Speech, Speech, Speech, Speech, Speech
