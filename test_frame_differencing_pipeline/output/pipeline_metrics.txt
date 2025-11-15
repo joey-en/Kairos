@@ -1,0 +1,135 @@
+TOTAL PIPELINE TIME: 2218.45 sec
+
+[5.39s] BLIP model loaded → CPU 17.3%, RAM 12.99GB, GPU 0.0%, VRAM 0.00GB
+[8.23s] Frames loaded: 870 → CPU 47.8%, RAM 14.83GB, GPU 0.0%, VRAM 0.00GB
+[11.03s] 10 scenes detected → CPU 44.2%, RAM 14.52GB, GPU 0.0%, VRAM 0.00GB
+
+[11.03s] Start processing Scene 0 → CPU 0.0%, RAM 14.52GB, GPU 0.0%, VRAM 0.00GB
+[11.86s] Scene 0 motion detection done (107 frames) → CPU 95.8%, RAM 14.53GB, GPU 0.0%, VRAM 0.00GB
+[15.69s] Scene 0 caption frame 0 → CPU 82.3%, RAM 14.94GB, GPU 0.0%, VRAM 0.00GB
+[36.93s] Scene 0 caption frame 10 → CPU 97.8%, RAM 13.24GB, GPU 0.0%, VRAM 0.00GB
+[67.08s] Scene 0 caption frame 20 → CPU 81.8%, RAM 13.48GB, GPU 0.0%, VRAM 0.00GB
+[102.87s] Scene 0 caption frame 30 → CPU 85.0%, RAM 14.62GB, GPU 0.0%, VRAM 0.00GB
+[134.69s] Scene 0 caption frame 40 → CPU 80.3%, RAM 14.61GB, GPU 0.0%, VRAM 0.00GB
+[160.65s] Scene 0 caption frame 50 → CPU 75.3%, RAM 14.39GB, GPU 0.0%, VRAM 0.00GB
+[190.78s] Scene 0 caption frame 60 → CPU 79.3%, RAM 14.52GB, GPU 0.0%, VRAM 0.00GB
+[221.11s] Scene 0 caption frame 70 → CPU 80.2%, RAM 14.74GB, GPU 0.0%, VRAM 0.00GB
+[255.81s] Scene 0 caption frame 80 → CPU 85.5%, RAM 14.45GB, GPU 0.0%, VRAM 0.00GB
+[282.79s] Scene 0 caption frame 90 → CPU 93.4%, RAM 14.03GB, GPU 0.0%, VRAM 0.00GB
+[310.57s] Scene 0 caption frame 100 → CPU 73.5%, RAM 13.95GB, GPU 0.0%, VRAM 0.00GB
+[329.12s] Scene 0 captions done (107 frames) → CPU 76.2%, RAM 14.03GB, GPU 0.0%, VRAM 0.00GB
+[330.94s] Scene 0 processing completed → CPU 85.8%, RAM 13.90GB, GPU 0.0%, VRAM 0.00GB
+
+[330.94s] Start processing Scene 1 → CPU 0.0%, RAM 13.90GB, GPU 0.0%, VRAM 0.00GB
+[332.35s] Scene 1 motion detection done (54 frames) → CPU 84.8%, RAM 14.03GB, GPU 0.0%, VRAM 0.00GB
+[336.15s] Scene 1 caption frame 0 → CPU 86.8%, RAM 13.98GB, GPU 0.0%, VRAM 0.00GB
+[367.04s] Scene 1 caption frame 10 → CPU 88.6%, RAM 13.16GB, GPU 0.0%, VRAM 0.00GB
+[394.84s] Scene 1 caption frame 20 → CPU 73.5%, RAM 13.15GB, GPU 0.0%, VRAM 0.00GB
+[423.36s] Scene 1 caption frame 30 → CPU 74.0%, RAM 13.17GB, GPU 0.0%, VRAM 0.00GB
+[452.02s] Scene 1 caption frame 40 → CPU 74.7%, RAM 13.29GB, GPU 0.0%, VRAM 0.00GB
+[481.35s] Scene 1 caption frame 50 → CPU 76.3%, RAM 12.89GB, GPU 0.0%, VRAM 0.00GB
+[490.41s] Scene 1 captions done (54 frames) → CPU 77.4%, RAM 12.95GB, GPU 0.0%, VRAM 0.00GB
+[491.25s] Scene 1 processing completed → CPU 82.3%, RAM 12.97GB, GPU 0.0%, VRAM 0.00GB
+
+[491.25s] Start processing Scene 2 → CPU 0.0%, RAM 12.97GB, GPU 0.0%, VRAM 0.00GB
+[493.58s] Scene 2 motion detection done (57 frames) → CPU 90.1%, RAM 13.20GB, GPU 0.0%, VRAM 0.00GB
+[497.22s] Scene 2 caption frame 0 → CPU 83.2%, RAM 13.15GB, GPU 0.0%, VRAM 0.00GB
+[526.70s] Scene 2 caption frame 10 → CPU 93.4%, RAM 13.02GB, GPU 0.0%, VRAM 0.00GB
+[549.12s] Scene 2 caption frame 20 → CPU 98.6%, RAM 13.06GB, GPU 0.0%, VRAM 0.00GB
+[573.90s] Scene 2 caption frame 30 → CPU 97.5%, RAM 13.17GB, GPU 0.0%, VRAM 0.00GB
+[595.19s] Scene 2 caption frame 40 → CPU 92.8%, RAM 13.13GB, GPU 0.0%, VRAM 0.00GB
+[616.35s] Scene 2 caption frame 50 → CPU 91.9%, RAM 13.12GB, GPU 0.0%, VRAM 0.00GB
+[629.09s] Scene 2 captions done (57 frames) → CPU 92.4%, RAM 13.08GB, GPU 0.0%, VRAM 0.00GB
+[629.60s] Scene 2 processing completed → CPU 50.7%, RAM 13.09GB, GPU 0.0%, VRAM 0.00GB
+
+[629.60s] Start processing Scene 3 → CPU 0.0%, RAM 13.09GB, GPU 0.0%, VRAM 0.00GB
+[630.20s] Scene 3 motion detection done (46 frames) → CPU 77.6%, RAM 13.22GB, GPU 0.0%, VRAM 0.00GB
+[632.96s] Scene 3 caption frame 0 → CPU 99.0%, RAM 13.20GB, GPU 0.0%, VRAM 0.00GB
+[654.67s] Scene 3 caption frame 10 → CPU 92.9%, RAM 13.09GB, GPU 0.0%, VRAM 0.00GB
+[675.59s] Scene 3 caption frame 20 → CPU 93.1%, RAM 13.06GB, GPU 0.0%, VRAM 0.00GB
+[697.99s] Scene 3 caption frame 30 → CPU 95.2%, RAM 13.12GB, GPU 0.0%, VRAM 0.00GB
+[722.62s] Scene 3 caption frame 40 → CPU 95.8%, RAM 13.18GB, GPU 0.0%, VRAM 0.00GB
+[735.17s] Scene 3 captions done (46 frames) → CPU 97.4%, RAM 13.18GB, GPU 0.0%, VRAM 0.00GB
+[735.52s] Scene 3 processing completed → CPU 75.6%, RAM 13.17GB, GPU 0.0%, VRAM 0.00GB
+
+[735.52s] Start processing Scene 4 → CPU 0.0%, RAM 13.17GB, GPU 0.0%, VRAM 0.00GB
+[740.81s] Scene 4 motion detection done (256 frames) → CPU 90.2%, RAM 13.73GB, GPU 0.0%, VRAM 0.00GB
+[743.49s] Scene 4 caption frame 0 → CPU 97.7%, RAM 13.51GB, GPU 0.0%, VRAM 0.00GB
+[766.03s] Scene 4 caption frame 10 → CPU 95.6%, RAM 13.48GB, GPU 0.0%, VRAM 0.00GB
+[788.21s] Scene 4 caption frame 20 → CPU 94.6%, RAM 13.56GB, GPU 0.0%, VRAM 0.00GB
+[814.79s] Scene 4 caption frame 30 → CPU 88.3%, RAM 13.66GB, GPU 0.0%, VRAM 0.00GB
+[841.51s] Scene 4 caption frame 40 → CPU 74.9%, RAM 13.61GB, GPU 0.0%, VRAM 0.00GB
+[870.77s] Scene 4 caption frame 50 → CPU 74.9%, RAM 13.57GB, GPU 0.0%, VRAM 0.00GB
+[897.51s] Scene 4 caption frame 60 → CPU 74.7%, RAM 13.55GB, GPU 0.0%, VRAM 0.00GB
+[924.44s] Scene 4 caption frame 70 → CPU 74.7%, RAM 13.55GB, GPU 0.0%, VRAM 0.00GB
+[951.91s] Scene 4 caption frame 80 → CPU 74.7%, RAM 13.59GB, GPU 0.0%, VRAM 0.00GB
+[981.77s] Scene 4 caption frame 90 → CPU 75.2%, RAM 13.58GB, GPU 0.0%, VRAM 0.00GB
+[1010.29s] Scene 4 caption frame 100 → CPU 76.6%, RAM 13.82GB, GPU 0.0%, VRAM 0.00GB
+[1037.38s] Scene 4 caption frame 110 → CPU 76.0%, RAM 13.79GB, GPU 0.0%, VRAM 0.00GB
+[1065.85s] Scene 4 caption frame 120 → CPU 74.9%, RAM 13.78GB, GPU 0.0%, VRAM 0.00GB
+[1092.30s] Scene 4 caption frame 130 → CPU 75.2%, RAM 13.75GB, GPU 0.0%, VRAM 0.00GB
+[1118.80s] Scene 4 caption frame 140 → CPU 75.2%, RAM 13.71GB, GPU 0.0%, VRAM 0.00GB
+[1145.17s] Scene 4 caption frame 150 → CPU 74.8%, RAM 13.74GB, GPU 0.0%, VRAM 0.00GB
+[1171.44s] Scene 4 caption frame 160 → CPU 75.2%, RAM 13.80GB, GPU 0.0%, VRAM 0.00GB
+[1198.51s] Scene 4 caption frame 170 → CPU 74.8%, RAM 13.81GB, GPU 0.0%, VRAM 0.00GB
+[1225.98s] Scene 4 caption frame 180 → CPU 75.1%, RAM 13.69GB, GPU 0.0%, VRAM 0.00GB
+[1254.87s] Scene 4 caption frame 190 → CPU 75.1%, RAM 13.67GB, GPU 0.0%, VRAM 0.00GB
+[1282.70s] Scene 4 caption frame 200 → CPU 75.1%, RAM 13.68GB, GPU 0.0%, VRAM 0.00GB
+[1308.64s] Scene 4 caption frame 210 → CPU 74.6%, RAM 13.66GB, GPU 0.0%, VRAM 0.00GB
+[1347.07s] Scene 4 caption frame 220 → CPU 84.6%, RAM 14.30GB, GPU 0.0%, VRAM 0.00GB
+[1388.97s] Scene 4 caption frame 230 → CPU 86.7%, RAM 14.46GB, GPU 0.0%, VRAM 0.00GB
+[1432.53s] Scene 4 caption frame 240 → CPU 84.4%, RAM 14.46GB, GPU 0.0%, VRAM 0.00GB
+[1476.96s] Scene 4 caption frame 250 → CPU 85.1%, RAM 14.47GB, GPU 0.0%, VRAM 0.00GB
+[1492.72s] Scene 4 captions done (256 frames) → CPU 80.2%, RAM 14.16GB, GPU 0.0%, VRAM 0.00GB
+[1496.71s] Scene 4 processing completed → CPU 80.2%, RAM 14.23GB, GPU 0.0%, VRAM 0.00GB
+
+[1496.71s] Start processing Scene 5 → CPU 0.0%, RAM 14.23GB, GPU 0.0%, VRAM 0.00GB
+[1497.77s] Scene 5 motion detection done (42 frames) → CPU 87.5%, RAM 14.37GB, GPU 0.0%, VRAM 0.00GB
+[1500.92s] Scene 5 caption frame 0 → CPU 81.4%, RAM 14.36GB, GPU 0.0%, VRAM 0.00GB
+[1532.24s] Scene 5 caption frame 10 → CPU 78.8%, RAM 14.31GB, GPU 0.0%, VRAM 0.00GB
+[1568.90s] Scene 5 caption frame 20 → CPU 89.4%, RAM 13.94GB, GPU 0.0%, VRAM 0.00GB
+[1609.59s] Scene 5 caption frame 30 → CPU 100.0%, RAM 14.01GB, GPU 0.0%, VRAM 0.00GB
+[1656.75s] Scene 5 caption frame 40 → CPU 96.6%, RAM 13.38GB, GPU 0.0%, VRAM 0.00GB
+[1662.06s] Scene 5 captions done (42 frames) → CPU 90.0%, RAM 13.43GB, GPU 0.0%, VRAM 0.00GB
+[1662.49s] Scene 5 processing completed → CPU 74.0%, RAM 13.37GB, GPU 0.0%, VRAM 0.00GB
+
+[1662.50s] Start processing Scene 6 → CPU 100.0%, RAM 13.37GB, GPU 0.0%, VRAM 0.00GB
+[1665.51s] Scene 6 motion detection done (144 frames) → CPU 92.5%, RAM 13.99GB, GPU 0.0%, VRAM 0.00GB
+[1671.56s] Scene 6 caption frame 0 → CPU 99.9%, RAM 13.69GB, GPU 0.0%, VRAM 0.00GB
+[1704.15s] Scene 6 caption frame 10 → CPU 97.2%, RAM 13.51GB, GPU 0.0%, VRAM 0.00GB
+[1743.58s] Scene 6 caption frame 20 → CPU 95.6%, RAM 13.85GB, GPU 0.0%, VRAM 0.00GB
+[1781.77s] Scene 6 caption frame 30 → CPU 88.1%, RAM 13.67GB, GPU 0.0%, VRAM 0.00GB
+[1818.79s] Scene 6 caption frame 40 → CPU 94.5%, RAM 13.46GB, GPU 0.0%, VRAM 0.00GB
+[1856.27s] Scene 6 caption frame 50 → CPU 100.0%, RAM 13.38GB, GPU 0.0%, VRAM 0.00GB
+[1896.99s] Scene 6 caption frame 60 → CPU 95.9%, RAM 13.32GB, GPU 0.0%, VRAM 0.00GB
+[1928.56s] Scene 6 caption frame 70 → CPU 89.8%, RAM 12.19GB, GPU 0.0%, VRAM 0.00GB
+[1952.89s] Scene 6 caption frame 80 → CPU 98.4%, RAM 12.26GB, GPU 0.0%, VRAM 0.00GB
+[1978.25s] Scene 6 caption frame 90 → CPU 96.8%, RAM 12.36GB, GPU 0.0%, VRAM 0.00GB
+[2003.11s] Scene 6 caption frame 100 → CPU 94.5%, RAM 12.34GB, GPU 0.0%, VRAM 0.00GB
+[2029.84s] Scene 6 caption frame 110 → CPU 95.1%, RAM 12.36GB, GPU 0.0%, VRAM 0.00GB
+[2052.03s] Scene 6 caption frame 120 → CPU 94.8%, RAM 12.42GB, GPU 0.0%, VRAM 0.00GB
+[2073.43s] Scene 6 caption frame 130 → CPU 94.0%, RAM 12.41GB, GPU 0.0%, VRAM 0.00GB
+[2095.43s] Scene 6 caption frame 140 → CPU 95.0%, RAM 12.47GB, GPU 0.0%, VRAM 0.00GB
+[2102.50s] Scene 6 captions done (144 frames) → CPU 94.3%, RAM 12.46GB, GPU 0.0%, VRAM 0.00GB
+[2103.50s] Scene 6 processing completed → CPU 52.2%, RAM 12.48GB, GPU 0.0%, VRAM 0.00GB
+
+[2103.50s] Start processing Scene 7 → CPU 0.0%, RAM 12.48GB, GPU 0.0%, VRAM 0.00GB
+[2104.03s] Scene 7 motion detection done (5 frames) → CPU 91.3%, RAM 12.63GB, GPU 0.0%, VRAM 0.00GB
+[2107.76s] Scene 7 caption frame 0 → CPU 98.5%, RAM 12.61GB, GPU 0.0%, VRAM 0.00GB
+[2119.48s] Scene 7 captions done (5 frames) → CPU 96.6%, RAM 12.63GB, GPU 0.0%, VRAM 0.00GB
+[2119.54s] Scene 7 processing completed → CPU 100.0%, RAM 12.63GB, GPU 0.0%, VRAM 0.00GB
+
+[2119.54s] Start processing Scene 8 → CPU 0.0%, RAM 12.63GB, GPU 0.0%, VRAM 0.00GB
+[2120.33s] Scene 8 motion detection done (37 frames) → CPU 90.9%, RAM 12.81GB, GPU 0.0%, VRAM 0.00GB
+[2123.49s] Scene 8 caption frame 0 → CPU 98.4%, RAM 12.76GB, GPU 0.0%, VRAM 0.00GB
+[2147.52s] Scene 8 caption frame 10 → CPU 96.4%, RAM 12.81GB, GPU 0.0%, VRAM 0.00GB
+[2172.54s] Scene 8 caption frame 20 → CPU 97.5%, RAM 12.75GB, GPU 0.0%, VRAM 0.00GB
+[2199.37s] Scene 8 caption frame 30 → CPU 98.1%, RAM 13.13GB, GPU 0.0%, VRAM 0.00GB
+[2214.28s] Scene 8 captions done (37 frames) → CPU 97.3%, RAM 13.20GB, GPU 0.0%, VRAM 0.00GB
+[2214.67s] Scene 8 processing completed → CPU 74.1%, RAM 13.21GB, GPU 0.0%, VRAM 0.00GB
+
+[2214.68s] Start processing Scene 9 → CPU 0.0%, RAM 13.21GB, GPU 0.0%, VRAM 0.00GB
+[2214.71s] Scene 9 motion detection done (1 frames) → CPU 70.4%, RAM 13.22GB, GPU 0.0%, VRAM 0.00GB
+[2218.44s] Scene 9 caption frame 0 → CPU 99.4%, RAM 13.22GB, GPU 0.0%, VRAM 0.00GB
+[2218.44s] Scene 9 captions done (1 frames) → CPU 0.0%, RAM 13.22GB, GPU 0.0%, VRAM 0.00GB
+[2218.45s] Scene 9 processing completed → CPU 100.0%, RAM 13.22GB, GPU 0.0%, VRAM 0.00GB

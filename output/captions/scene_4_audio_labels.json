@@ -1,0 +1,55 @@
+[
+  {
+    "clip_index": 0,
+    "start_sec": 0.0,
+    "end_sec": 2.0,
+    "labels": [
+      "Speech",
+      "Music"
+    ],
+    "scores": [
+      0.6328349709510803,
+      0.5207962393760681
+    ]
+  },
+  {
+    "clip_index": 1,
+    "start_sec": 2.0,
+    "end_sec": 4.0,
+    "labels": [
+      "Music"
+    ],
+    "scores": [
+      0.5028541088104248
+    ]
+  },
+  {
+    "clip_index": 2,
+    "start_sec": 4.0,
+    "end_sec": 6.0,
+    "labels": [],
+    "scores": []
+  },
+  {
+    "clip_index": 3,
+    "start_sec": 6.0,
+    "end_sec": 8.0,
+    "labels": [
+      "Music"
+    ],
+    "scores": [
+      0.5428930521011353
+    ]
+  },
+  {
+    "clip_index": 4,
+    "start_sec": 8.0,
+    "end_sec": 9.2425625,
+    "labels": [
+      "Music"
+    ],
+    "scores": [
+      0.549712598323822
+    ]
+  }
+]

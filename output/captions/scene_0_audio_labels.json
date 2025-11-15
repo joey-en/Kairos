@@ -1,0 +1,24 @@
+[
+  {
+    "clip_index": 0,
+    "start_sec": 0.0,
+    "end_sec": 2.0,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.7565064430236816
+    ]
+  },
+  {
+    "clip_index": 1,
+    "start_sec": 2.0,
+    "end_sec": 3.903875,
+    "labels": [
+      "Speech"
+    ],
+    "scores": [
+      0.7153017520904541
+    ]
+  }
+]

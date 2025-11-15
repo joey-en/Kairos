@@ -1,0 +1,95 @@
+{
+  "total_time_sec": 366.07784152030945,
+  "scenes": [
+    {
+      "scene_index": 0,
+      "scene_duration_sec": 3.937266666666667,
+      "processing_time_sec": 48.39220881462097,
+      "ram_usage_mb": 2700.13671875,
+      "cpu_percent": 50.0,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 1,
+      "scene_duration_sec": 2.3023,
+      "processing_time_sec": 33.68258738517761,
+      "ram_usage_mb": 5282.58984375,
+      "cpu_percent": 27.7,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 2,
+      "scene_duration_sec": 2.0353666666666665,
+      "processing_time_sec": 36.48572587966919,
+      "ram_usage_mb": 5677.640625,
+      "cpu_percent": 37.5,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 3,
+      "scene_duration_sec": 1.7350666666666665,
+      "processing_time_sec": 35.352783203125,
+      "ram_usage_mb": 5295.8046875,
+      "cpu_percent": 47.4,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 4,
+      "scene_duration_sec": 9.242566666666667,
+      "processing_time_sec": 59.273648500442505,
+      "ram_usage_mb": 4429.56640625,
+      "cpu_percent": 78.1,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 5,
+      "scene_duration_sec": 1.7350666666666683,
+      "processing_time_sec": 34.205466508865356,
+      "ram_usage_mb": 5232.35546875,
+      "cpu_percent": 42.6,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 6,
+      "scene_duration_sec": 5.205199999999998,
+      "processing_time_sec": 49.16592764854431,
+      "ram_usage_mb": 4895.265625,
+      "cpu_percent": 27.4,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 7,
+      "scene_duration_sec": 1.4014000000000024,
+      "processing_time_sec": 32.5654399394989,
+      "ram_usage_mb": 5058.6875,
+      "cpu_percent": 31.2,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 8,
+      "scene_duration_sec": 1.4013999999999989,
+      "processing_time_sec": 32.94690728187561,
+      "ram_usage_mb": 5083.171875,
+      "cpu_percent": 22.5,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    },
+    {
+      "scene_index": 9,
+      "scene_duration_sec": 0.03336666666666588,
+      "processing_time_sec": 4.006431579589844,
+      "ram_usage_mb": 5087.3671875,
+      "cpu_percent": 29.0,
+      "gpu_util_percent": 0,
+      "vram_usage_mb": 0
+    }
+  ]
+}

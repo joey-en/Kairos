@@ -20,3 +20,18 @@ Pillow== 12.0.0
 sentencepiece==0.2.1
 torchvision==0.24.1
 einops==0.8.1
+
+# --- Audio / ASR / Audio Captioning ---
+openai-whisper>=20230314
+torchaudio==2.9.1
+torchcodec>=0.0.7
+librosa>=0.10.0
+soundfile>=0.12.1
+ffmpeg_downloader>=0.3.0
+ffmpeg-python>=0.1.20
+
+# Noise reduction
+noisereduce>=2.0.1
+
+# Note: ffmpeg must be installed on your system
+# For Windows, run: winget install ffmpeg
