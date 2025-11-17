@@ -1,1 +1,1 @@
-BLIP: a video frame of a man giving a speech to a large crowd a video frame of a man speaking to a large crowd + AST: Speech, Speech
+BLIP: a video frame of a man giving a speech to a large crowd a video frame of a man speaking to a large crowd + ASR: honored to receive this award together.

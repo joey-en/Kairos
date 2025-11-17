@@ -3,67 +3,43 @@
     "clip_index": 0,
     "start_sec": 0.0,
     "end_sec": 2.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5831227898597717
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 1,
     "start_sec": 2.0,
     "end_sec": 4.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5833979249000549
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 2,
     "start_sec": 4.0,
     "end_sec": 6.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.7151216864585876
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 3,
     "start_sec": 6.0,
     "end_sec": 8.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5564600229263306
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 4,
     "start_sec": 8.0,
     "end_sec": 10.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6138738989830017
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 5,
     "start_sec": 10.0,
     "end_sec": 12.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.7748413681983948
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 6,
@@ -76,55 +52,35 @@
     "clip_index": 7,
     "start_sec": 14.0,
     "end_sec": 16.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5434486269950867
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 8,
     "start_sec": 16.0,
     "end_sec": 18.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6346144676208496
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 9,
     "start_sec": 18.0,
     "end_sec": 20.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.633644700050354
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 10,
     "start_sec": 20.0,
     "end_sec": 22.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5746726393699646
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 11,
     "start_sec": 22.0,
     "end_sec": 23.59025,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.4257279336452484
-    ]
+    "labels": [],
+    "scores": []
   }
 ]

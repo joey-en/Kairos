@@ -1,1 +1,1 @@
-BLIP: a video frame of a woman wearing a pink shawl a video frame of a woman wearing a pink hina + AST: Speech, Speech, Speech
+BLIP: a video frame of a woman wearing a pink shawl a video frame of a woman wearing a pink hina + ASR: I'm proud that we can work together. + AST: Music

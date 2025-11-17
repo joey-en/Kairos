@@ -1,1 +1,1 @@
-BLIP: a video frame of pm modi ' s speech in parliament a video frame of pm modi ' s speech in parliament + AST: Speech, Speech, Speech, Speech
+BLIP: a video frame of pm modi ' s speech in parliament a video frame of pm modi ' s speech in parliament + ASR: for children's rights for a long time. Twice as long, in fact, than I have been alive.

@@ -1,84 +1,136 @@
-# src/audio_asr.py
-import tempfile
-from pathlib import Path
-import numpy as np
-import soundfile as sf
+import torch
 import librosa
+import soundfile as sf
+import tempfile
+import time
+from pathlib import Path
 import noisereduce as nr
 import whisper
-from pyannote.audio import Pipeline
-import os
 
-HF_TOKEN = os.getenv("HF_TOKEN")
-vad_pipeline = Pipeline.from_pretrained(
-    "pyannote/voice-activity-detection", use_auth_token=HF_TOKEN
+# Load Silero VAD once (fast, CPU-friendly)
+silero_model, utils = torch.hub.load(
+    repo_or_dir="snakers4/silero-vad",
+    model="silero_vad",
+    force_reload=False
 )
 
-# List of phrases to ignore if Whisper hallucinates them
-HALLUCINATED_PHRASES = [
-    "thanks for watching",
-    "thank you for watching",
-    "thanks",
-    "thank you"
+# Correct tuple unpacking
+get_speech_ts, collect_chunks, *_ = utils
+
+# Short phrases often hallucinated by Whisper, treat them softly
+HALLUCINATED = [
+    "thanks", "thank you", "thanks for watching", "thank you for watching"
 ]
 
-def extract_speech_asr(audio_path: str, model_name: str = "small", min_seg_sec: float = 0.05, silence_rms_thresh: float = 0.05):
+def filter_hallucinated(text: str) -> str:
     """
-    Extract speech from audio with VAD + Whisper.
-    
-    Skips very short segments, low energy (silent) clips, and hallucinated phrases.
+    Soft hallucination filter:
+    Only remove text if it matches exactly a known hallucinated phrase.
+    Preserves legitimate speech.
     """
-    # Load audio
-    y, sr = librosa.load(str(audio_path), sr=16000, mono=True)
+    if text.strip().lower() in HALLUCINATED:
+        return ""
+    return text
 
-    # Denoise
-    y = nr.reduce_noise(y=y, sr=sr, prop_decrease=0.9)
+def extract_speech_asr(audio_path: str, model_name="small", enable_logs=True):
+    """
+    Perform speech extraction and transcription (ASR) from audio.
 
-    # Save temp WAV
-    tmp_path = Path(tempfile.NamedTemporaryFile(suffix=".wav", delete=False).name)
-    sf.write(str(tmp_path), y, sr)
+    Steps:
+      1. Load audio (mono 16kHz)
+      2. Noise reduction
+      3. Voice Activity Detection (Silero VAD)
+      4. Collect speech chunks
+      5. Save to temporary WAV
+      6. Whisper transcription
+      7. Optional hallucination filtering
 
-    # -----------------------
-    # 1. VAD
-    # -----------------------
-    try:
-        vad_result = vad_pipeline(str(tmp_path))
-        speech_segments = [(s.start, s.end) for s in vad_result.get_timeline().support()]
-    except Exception:
-        speech_segments = [(0, len(y)/sr)]
+    Args:
+        audio_path (str): Path to input .wav
+        model_name (str): Whisper model ("tiny", "base", "small", "medium", "large")
+        enable_logs (bool): Print debug information
 
-    # Filter very short segments
-    speech_segments = [(s, e) for s, e in speech_segments if e - s >= min_seg_sec]
-    if len(speech_segments) == 0:
-        tmp_path.unlink(missing_ok=True)
-        return ""  # No speech to transcribe
+    Returns:
+        text (str): Transcribed speech
+        timings (dict): Detailed timing metrics:
+            - load_audio_sec
+            - noise_reduction_sec
+            - vad_detection_sec
+            - extract_chunks_sec
+            - write_temp_wav_sec
+            - whisper_sec
+            - asr_duration_sec
+    """
+    timings = {}
+    t0_total = time.time()
 
-    # Concatenate speech segments
-    speech_audio = np.concatenate([y[int(s*sr):int(e*sr)] for s, e in speech_segments])
+    # 1. Load audio
+    t0 = time.time()
+    wav, sr = librosa.load(audio_path, sr=16000, mono=True)
+    timings["load_audio_sec"] = time.time() - t0
 
-    # Check RMS to filter silence
-    rms = np.sqrt(np.mean(speech_audio**2))
-    if rms < silence_rms_thresh:
-        tmp_path.unlink(missing_ok=True)
-        return ""  # Mostly silence, skip transcription
+    # 2. Noise reduction
+    t0 = time.time()
+    wav = nr.reduce_noise(y=wav, sr=sr, prop_decrease=0.9)
+    timings["noise_reduction_sec"] = time.time() - t0
 
-    # Save filtered speech audio
-    sf.write(str(tmp_path), speech_audio, sr)
+    # 3. VAD
+    t0 = time.time()
+    wav_tensor = torch.from_numpy(wav).float()
+    speech_ts = get_speech_ts(wav_tensor, silero_model, sampling_rate=sr)
+    timings["vad_detection_sec"] = time.time() - t0
 
-    # -----------------------
-    # 2. Whisper ASR
-    # -----------------------
+    if len(speech_ts) == 0:
+        timings["asr_duration_sec"] = time.time() - t0_total
+        if enable_logs:
+            print(f"[ASR] No speech detected in {audio_path}")
+        return "", timings
+
+    # 4. Collect speech chunks
+    t0 = time.time()
+    # Manually combine speech segments to avoid torchcodec/collect_chunks saving
+    speech_audio_segments = []
+    for seg in speech_ts:
+        start = int(seg["start"])
+        end = int(seg["end"])
+        speech_audio_segments.append(wav_tensor[start:end])
+    if len(speech_audio_segments) > 0:
+        speech_audio = torch.cat(speech_audio_segments).numpy()
+    else:
+        speech_audio = np.array([], dtype=np.float32)
+    timings["extract_chunks_sec"] = time.time() - t0
+
+    if len(speech_audio)/sr < 0.3:
+        timings["asr_duration_sec"] = time.time() - t0_total
+        if enable_logs:
+            print(f"[ASR] Speech too short (<0.3s), skipping transcription")
+        return "", timings
+
+    # 5. Write temporary WAV
+    t0 = time.time()
+    tmp = Path(tempfile.NamedTemporaryFile(suffix=".wav", delete=False).name)
+    sf.write(tmp, speech_audio, sr)
+    timings["write_temp_wav_sec"] = time.time() - t0
+
+    # 6. Whisper transcription
+    t0 = time.time()
     try:
         model = whisper.load_model(model_name)
-        result = model.transcribe(str(tmp_path), temperature=0, language="en", task="transcribe")
+        result = model.transcribe(str(tmp), temperature=0, language="en")
         text = result.get("text", "").strip()
-        # Remove hallucinated phrases
-        lower_text = text.lower()
-        if any(p in lower_text for p in HALLUCINATED_PHRASES):
-            text = ""
-    except Exception:
+        text = filter_hallucinated(text)
+    except Exception as e:
         text = ""
+        if enable_logs:
+            print(f"[ASR] Whisper error: {e}")
     finally:
-        tmp_path.unlink(missing_ok=True)
+        tmp.unlink(missing_ok=True)
 
-    return text
+    timings["whisper_sec"] = time.time() - t0
+    timings["asr_duration_sec"] = time.time() - t0_total
+
+    if enable_logs:
+        print(f"[ASR] Finished {audio_path}: {len(text)} chars")
+        print("Timings:", timings)
+
+    return text, timings

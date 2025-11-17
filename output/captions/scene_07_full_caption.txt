@@ -1,1 +1,1 @@
-BLIP: a video frame of a group of people in a room a video frame of a woman wearing a pink shawl + AST: Speech, Narration, monologue, Speech, Music
+BLIP: a video frame of a group of people in a room a video frame of a woman wearing a pink shawl + ASR: with Kailash Satyarthi who has been a champion

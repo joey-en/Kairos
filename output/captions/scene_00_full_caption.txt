@@ -1,1 +1,1 @@
-BLIP: a video frame of a woman speaking at a podium a video frame of a woman speaking at a podium + AST: Speech, Speech, Speech, Speech, Speech, Speech, Speech, Applause, Applause
+BLIP: a video frame of a woman speaking at a podium a video frame of a woman speaking at a podium + ASR: I'm proud, well in fact I'm very proud, to be the first Pashtun, the first Pakistani, and the youngest person to receive this award. + AST: Music, Ping, Applause, Applause

@@ -14,44 +14,32 @@
     "clip_index": 1,
     "start_sec": 2.0,
     "end_sec": 4.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5657644271850586
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 2,
     "start_sec": 4.0,
     "end_sec": 6.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6852714419364929
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 3,
     "start_sec": 6.0,
     "end_sec": 8.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6540727019309998
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 4,
     "start_sec": 8.0,
     "end_sec": 10.0,
     "labels": [
-      "Speech"
+      "Music"
     ],
     "scores": [
-      0.7169216275215149
+      0.4368724524974823
     ]
   },
   {
@@ -59,66 +47,46 @@
     "start_sec": 10.0,
     "end_sec": 12.0,
     "labels": [
-      "Speech"
+      "Music"
     ],
     "scores": [
-      0.6310362815856934
+      0.3558931350708008
     ]
   },
   {
     "clip_index": 6,
     "start_sec": 12.0,
     "end_sec": 14.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6106678247451782
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 7,
     "start_sec": 14.0,
     "end_sec": 16.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.581871509552002
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 8,
     "start_sec": 16.0,
     "end_sec": 18.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.713688313961029
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 9,
     "start_sec": 18.0,
     "end_sec": 20.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5857855677604675
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 10,
     "start_sec": 20.0,
     "end_sec": 22.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6619563698768616
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 11,
@@ -131,34 +99,22 @@
     "clip_index": 12,
     "start_sec": 24.0,
     "end_sec": 26.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5734941959381104
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 13,
     "start_sec": 26.0,
     "end_sec": 28.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6552014946937561
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 14,
     "start_sec": 28.0,
     "end_sec": 30.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6299509406089783
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 15,
@@ -171,145 +127,95 @@
     "clip_index": 16,
     "start_sec": 32.0,
     "end_sec": 34.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6578065752983093
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 17,
     "start_sec": 34.0,
     "end_sec": 36.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6484141945838928
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 18,
     "start_sec": 36.0,
     "end_sec": 38.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.7395234107971191
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 19,
     "start_sec": 38.0,
     "end_sec": 40.0,
-    "labels": [
-      "Speech",
-      "Narration, monologue"
-    ],
-    "scores": [
-      0.752692699432373,
-      0.45643705129623413
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 20,
     "start_sec": 40.0,
     "end_sec": 42.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6980598568916321
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 21,
     "start_sec": 42.0,
     "end_sec": 44.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6169472932815552
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 22,
     "start_sec": 44.0,
     "end_sec": 46.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6452900767326355
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 23,
     "start_sec": 46.0,
     "end_sec": 48.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.657787024974823
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 24,
     "start_sec": 48.0,
     "end_sec": 50.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.638657808303833
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 25,
     "start_sec": 50.0,
     "end_sec": 52.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.7701715230941772
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 26,
     "start_sec": 52.0,
     "end_sec": 54.0,
     "labels": [
-      "Speech"
+      "Tick"
     ],
     "scores": [
-      0.8060718774795532
+      0.320496141910553
     ]
   },
   {
     "clip_index": 27,
     "start_sec": 54.0,
     "end_sec": 56.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6735498309135437
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 28,
     "start_sec": 56.0,
     "end_sec": 56.7233125,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.48569825291633606
-    ]
+    "labels": [],
+    "scores": []
   }
 ]

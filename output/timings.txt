@@ -1,0 +1,308 @@
+Scene 0 | 0.00-15.85 sec
+  ASR duration: 37.9576 sec
+    Load audio: 1.3780 sec
+    Noise reduction: 0.1380 sec
+    VAD detection: 0.3014 sec
+    Chunk extraction: 0.0023 sec
+    Whisper: 36.1343 sec
+  AST duration: 38.8236 sec
+    Load audio: 0.0165 sec
+    VAD detection: 0.2837 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0312 sec
+    AST forward: 38.4764 sec
+------------------------------------------------------------
+Scene 1 | 15.85-21.76 sec
+  ASR duration: 0.2636 sec
+    Load audio: 0.0159 sec
+    Noise reduction: 0.1171 sec
+    VAD detection: 0.1305 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 15.5519 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.1213 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0085 sec
+    AST forward: 15.4112 sec
+------------------------------------------------------------
+Scene 2 | 21.76-25.79 sec
+  ASR duration: 0.1115 sec
+    Load audio: 0.0158 sec
+    Noise reduction: 0.0477 sec
+    VAD detection: 0.0480 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 13.2005 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0641 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0203 sec
+    AST forward: 13.0849 sec
+------------------------------------------------------------
+Scene 3 | 25.79-28.56 sec
+  ASR duration: 0.1004 sec
+    Load audio: 0.0061 sec
+    Noise reduction: 0.0522 sec
+    VAD detection: 0.0421 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 7.4957 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0293 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0000 sec
+    AST forward: 7.4487 sec
+------------------------------------------------------------
+Scene 4 | 28.56-52.15 sec
+  ASR duration: 39.9113 sec
+    Load audio: 0.0159 sec
+    Noise reduction: 0.1660 sec
+    VAD detection: 0.5283 sec
+    Chunk extraction: 0.0000 sec
+    Whisper: 39.1879 sec
+  AST duration: 52.0027 sec
+    Load audio: 0.0029 sec
+    VAD detection: 0.2718 sec
+    Mask speech: 0.0020 sec
+    Feature extraction: 0.0203 sec
+    AST forward: 51.6939 sec
+------------------------------------------------------------
+Scene 5 | 52.15-56.62 sec
+  ASR duration: 0.1898 sec
+    Load audio: 0.0000 sec
+    Noise reduction: 0.0791 sec
+    VAD detection: 0.1107 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 13.2479 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.1101 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0080 sec
+    AST forward: 13.1268 sec
+------------------------------------------------------------
+Scene 6 | 56.62-59.46 sec
+  ASR duration: 34.0906 sec
+    Load audio: 0.0030 sec
+    Noise reduction: 0.0282 sec
+    VAD detection: 0.0337 sec
+    Chunk extraction: 0.0159 sec
+    Whisper: 34.0098 sec
+  AST duration: 8.2196 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0337 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0100 sec
+    AST forward: 8.1739 sec
+------------------------------------------------------------
+Scene 7 | 59.46-63.53 sec
+  ASR duration: 36.7879 sec
+    Load audio: 0.0102 sec
+    Noise reduction: 0.0663 sec
+    VAD detection: 0.1094 sec
+    Chunk extraction: 0.0023 sec
+    Whisper: 36.5950 sec
+  AST duration: 11.2464 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0542 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0157 sec
+    AST forward: 11.1766 sec
+------------------------------------------------------------
+Scene 8 | 63.53-71.20 sec
+  ASR duration: 35.7455 sec
+    Load audio: 0.0114 sec
+    Noise reduction: 0.0698 sec
+    VAD detection: 0.0958 sec
+    Chunk extraction: 0.0000 sec
+    Whisper: 35.5525 sec
+  AST duration: 16.5495 sec
+    Load audio: 0.0010 sec
+    VAD detection: 0.1118 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0102 sec
+    AST forward: 16.4246 sec
+------------------------------------------------------------
+Scene 9 | 71.20-78.45 sec
+  ASR duration: 32.6483 sec
+    Load audio: 0.0239 sec
+    Noise reduction: 0.0957 sec
+    VAD detection: 0.0775 sec
+    Chunk extraction: 0.0000 sec
+    Whisper: 32.4381 sec
+  AST duration: 15.9750 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.1845 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0182 sec
+    AST forward: 15.7663 sec
+------------------------------------------------------------
+Scene 10 | 78.45-93.59 sec
+  ASR duration: 41.1008 sec
+    Load audio: 0.0184 sec
+    Noise reduction: 0.1319 sec
+    VAD detection: 0.2264 sec
+    Chunk extraction: 0.0000 sec
+    Whisper: 40.7220 sec
+  AST duration: 31.7912 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.1934 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0182 sec
+    AST forward: 31.5776 sec
+------------------------------------------------------------
+Scene 11 | 93.59-96.36 sec
+  ASR duration: 0.1558 sec
+    Load audio: 0.0063 sec
+    Noise reduction: 0.0779 sec
+    VAD detection: 0.0716 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 7.3458 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0789 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0020 sec
+    AST forward: 7.2649 sec
+------------------------------------------------------------
+Scene 12 | 96.36-98.67 sec
+  ASR duration: 0.0660 sec
+    Load audio: 0.0000 sec
+    Noise reduction: 0.0316 sec
+    VAD detection: 0.0344 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 7.6570 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0337 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0081 sec
+    AST forward: 7.6132 sec
+------------------------------------------------------------
+Scene 13 | 98.67-102.54 sec
+  ASR duration: 0.1585 sec
+    Load audio: 0.0000 sec
+    Noise reduction: 0.0477 sec
+    VAD detection: 0.1108 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 7.8052 sec
+    Load audio: 0.0064 sec
+    VAD detection: 0.1205 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0047 sec
+    AST forward: 7.6618 sec
+------------------------------------------------------------
+Scene 14 | 102.54-144.51 sec
+  ASR duration: 43.7571 sec
+    Load audio: 0.0060 sec
+    Noise reduction: 0.6268 sec
+    VAD detection: 0.5385 sec
+    Chunk extraction: 0.0000 sec
+    Whisper: 42.5856 sec
+  AST duration: 86.0540 sec
+    Load audio: 0.0042 sec
+    VAD detection: 0.5651 sec
+    Mask speech: 0.0020 sec
+    Feature extraction: 0.0894 sec
+    AST forward: 85.3534 sec
+------------------------------------------------------------
+Scene 15 | 144.51-148.58 sec
+  ASR duration: 38.6593 sec
+    Load audio: 0.0042 sec
+    Noise reduction: 0.0309 sec
+    VAD detection: 0.0467 sec
+    Chunk extraction: 0.0000 sec
+    Whisper: 38.5590 sec
+  AST duration: 15.0691 sec
+    Load audio: 0.0010 sec
+    VAD detection: 0.0680 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0138 sec
+    AST forward: 14.9843 sec
+------------------------------------------------------------
+Scene 16 | 148.58-204.30 sec
+  ASR duration: 71.7410 sec
+    Load audio: 0.0100 sec
+    Noise reduction: 0.5244 sec
+    VAD detection: 0.8122 sec
+    Chunk extraction: 0.0000 sec
+    Whisper: 70.3842 sec
+  AST duration: 132.9380 sec
+    Load audio: 0.0035 sec
+    VAD detection: 1.1240 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0480 sec
+    AST forward: 131.6790 sec
+------------------------------------------------------------
+Scene 17 | 204.30-207.61 sec
+  ASR duration: 0.1976 sec
+    Load audio: 0.0159 sec
+    Noise reduction: 0.0904 sec
+    VAD detection: 0.0913 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 8.2666 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0558 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0000 sec
+    AST forward: 8.2109 sec
+------------------------------------------------------------
+Scene 18 | 207.61-210.21 sec
+  ASR duration: 0.0787 sec
+    Load audio: 0.0068 sec
+    Noise reduction: 0.0358 sec
+    VAD detection: 0.0360 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 7.2594 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0345 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0020 sec
+    AST forward: 7.2209 sec
+------------------------------------------------------------
+Scene 19 | 210.21-213.31 sec
+  ASR duration: 0.0958 sec
+    Load audio: 0.0000 sec
+    Noise reduction: 0.0562 sec
+    VAD detection: 0.0396 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 9.2282 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0336 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0020 sec
+    AST forward: 9.1926 sec
+------------------------------------------------------------
+Scene 20 | 213.31-216.75 sec
+  ASR duration: 0.1609 sec
+    Load audio: 0.0053 sec
+    Noise reduction: 0.0665 sec
+    VAD detection: 0.0892 sec
+    Chunk extraction: -1.0000 sec
+    Whisper: -1.0000 sec
+  AST duration: 9.3592 sec
+    Load audio: 0.0000 sec
+    VAD detection: 0.0865 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0086 sec
+    AST forward: 9.2641 sec
+------------------------------------------------------------
+Scene 21 | 216.75-273.47 sec
+  ASR duration: 50.2757 sec
+    Load audio: 0.0161 sec
+    Noise reduction: 0.8692 sec
+    VAD detection: 0.9074 sec
+    Chunk extraction: 0.0000 sec
+    Whisper: 48.4580 sec
+  AST duration: 118.1010 sec
+    Load audio: 0.0038 sec
+    VAD detection: 0.6406 sec
+    Mask speech: 0.0000 sec
+    Feature extraction: 0.0548 sec
+    AST forward: 117.3542 sec
+------------------------------------------------------------

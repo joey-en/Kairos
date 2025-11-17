@@ -10,33 +10,25 @@
     "clip_index": 1,
     "start_sec": 2.0,
     "end_sec": 4.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.4894237220287323
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 2,
     "start_sec": 4.0,
     "end_sec": 6.0,
     "labels": [
-      "Speech"
+      "Music"
     ],
     "scores": [
-      0.654537558555603
+      0.4087297320365906
     ]
   },
   {
     "clip_index": 3,
     "start_sec": 6.0,
     "end_sec": 7.2405625,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.4988461136817932
-    ]
+    "labels": [],
+    "scores": []
   }
 ]

@@ -3,22 +3,18 @@
     "clip_index": 0,
     "start_sec": 0.0,
     "end_sec": 2.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.5988487005233765
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 1,
     "start_sec": 2.0,
     "end_sec": 4.0,
     "labels": [
-      "Speech"
+      "Music"
     ],
     "scores": [
-      0.6449745893478394
+      0.5993285775184631
     ]
   },
   {
@@ -26,56 +22,42 @@
     "start_sec": 4.0,
     "end_sec": 6.0,
     "labels": [
-      "Speech"
+      "Ping"
     ],
     "scores": [
-      0.6908040046691895
+      0.37672796845436096
     ]
   },
   {
     "clip_index": 3,
     "start_sec": 6.0,
     "end_sec": 8.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6784425973892212
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 4,
     "start_sec": 8.0,
     "end_sec": 10.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.736619234085083
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 5,
     "start_sec": 10.0,
     "end_sec": 12.0,
-    "labels": [
-      "Speech"
-    ],
-    "scores": [
-      0.6913621425628662
-    ]
+    "labels": [],
+    "scores": []
   },
   {
     "clip_index": 6,
     "start_sec": 12.0,
     "end_sec": 14.0,
     "labels": [
-      "Speech",
       "Applause"
     ],
     "scores": [
-      0.6080400347709656,
-      0.3889601528644562
+      0.6789311170578003
     ]
   },
   {
@@ -86,7 +68,7 @@
       "Applause"
     ],
     "scores": [
-      0.737700879573822
+      0.7377010583877563
     ]
   }
 ]
