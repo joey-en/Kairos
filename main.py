@@ -8,7 +8,6 @@ from src.frame_sampling import sample_frames
 from src.captioning.frame_captioning_blip import BLIPCaptioner
 from src.detection.yolo_detector import YOLODetector
 from src.captioning.llm_fusion_caption import LLMSegmentCaptioner
-
 # ------------------------
 # Helpers
 # ------------------------
@@ -19,7 +18,7 @@ def mem_mb():
 # ------------------------
 # Configuration
 # ------------------------
-video_path = "Videos/Watch Malala Yousafzai's Nobel Peace Prize acceptance speech.mp4" 
+VIDEO = "Videos/Watch Malala Yousafzai's Nobel Peace Prize acceptance speech.mp4" 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # ------------------------
@@ -34,118 +33,90 @@ yolo = YOLODetector("yolov8s.pt")
 print("[INFO] Loading Gemini LLM Segment Captioner...")
 llm_captioner = LLMSegmentCaptioner(model="gemini-2.5-flash")
 
-# ------------------------
-# Pipeline start metrics
-# ------------------------
+
 pipeline_start = time.time()
 pipeline_mem_start = mem_mb()
 
-# ------------------------
 # Scene detection
-# ------------------------
-t0_scene = time.time()
-scenes = get_scene_list(video_path)
-t1_scene = time.time() - t0_scene
-print(f"[INFO] Detected {len(scenes)} scenes in {t1_scene:.2f}s")
+s_t0 = time.time()
+scenes = get_scene_list(VIDEO)
+s_time = time.time() - s_t0
+print(f"[INFO] Detected {len(scenes)} scenes in {s_time:.2f}s")
 
-# ------------------------
 # Frame sampling
-# ------------------------
-t0_sample = time.time()
-scenes_with_frames = sample_frames(video_path, scenes, num_frames=2)
-t1_sample = time.time() - t0_sample
-print(f"[INFO] Sampled frames in {t1_sample:.2f}s")
+f_t0 = time.time()
+scenes = sample_frames(VIDEO, scenes, num_frames=3, output_dir="output/frames")
+f_time = time.time() - f_t0
+print(f"[INFO] Sampled frames in {f_time:.2f}s")
 
-# ------------------------
-# Process each scene
-# ------------------------
 results = []
-overall_yolo_time = 0
-overall_blip_time = 0
-overall_segment_time = 0
+YOLO_total = 0
+BLIP_total = 0
+SEG_total = 0
 
-for scene in scenes_with_frames:
-    frames = scene["frames"]
-    scene_index = scene.get("scene_index", "unknown")
-    scene_results = {
-        "scene_index": scene_index,
-        "frames": [],
-        "segment_caption": None,
-        "metrics": {}
-    }
+for sc in scenes:
+    frames = sc["frames"]
+    scene_idx = sc["scene_index"]
+    scene_res = {"scene_index": scene_idx, "frames": [], "metrics": {}, "segment_caption": None}
 
-    # Per-frame BLIP + YOLO
-    frame_outputs = []
-    for frame in frames:
-        # YOLO detection
-        t0_yolo = time.time()
-        yolo_dets = yolo.detect(frame)  # returns dicts with 'label' and 'confidence'
-        t1_yolo = time.time() - t0_yolo
-        overall_yolo_time += t1_yolo
+    frame_fusions = []
+    for fr in frames:
+        dets, t_y, cpu_y, ram_y, gpu_y, vram_y = yolo.detect(fr)
+        caption, t_b, cpu_b, ram_b, gpu_b, vram_b = blip.caption(fr, prompt="a video frame of")
 
-        # BLIP caption
-        t0_blip = time.time()
-        blip_cap = blip_captioner.caption(frame, prompt="a video frame of")
-        t1_blip = time.time() - t0_blip
-        overall_blip_time += t1_blip
+        YOLO_total += t_y
+        BLIP_total += t_b
 
-        frame_outputs.append({
-            "yolo_detections": yolo_dets,
-            "blip_caption": blip_cap,
-            "metrics": {
-                "yolo_time": round(t1_yolo, 4),
-                "blip_time": round(t1_blip, 4),
-            }
-        })
+        frame_fusions.append({
+        "yolo_detections": dets,
+        "blip_caption": caption,
+        "metrics": {
+        "yolo_time": t_y,
+        "blip_time": t_b,
+        "yolo_cpu": cpu_y,
+        "yolo_ram": ram_y,
+        "yolo_gpu": gpu_y,
+        "yolo_vram": vram_y,
+        "blip_cpu": cpu_b,
+        "blip_ram": ram_b,
+        "blip_gpu": gpu_b,
+        "blip_vram": vram_b,
+        }
+    })
 
-    scene_results["frames"] = frame_outputs
-
-    # Segment-level LLM caption
-    t0_segment = time.time()
     fusion_texts = []
-    for fo in frame_outputs:
-        dets = ", ".join([f"{d['label']} ({d['confidence']:.2f})" for d in fo["yolo_detections"]]) \
-               if fo["yolo_detections"] else "no objects"
-        fusion_texts.append(f"Objects: {dets}\nCaption: {fo['blip_caption']}")
+    for fo in frame_fusions:
+        objs = ", ".join([f"{d['label']} ({d['confidence']:.2f})" for d in fo["yolo_detections"]]) or "no objects"
+        fusion_texts.append(f"Objects: {objs}\nCaption: {fo['blip_caption']}")
 
-    segment_caption = llm_captioner.describe_segment(fusion_texts)
-    t1_segment = time.time() - t0_segment
-    overall_segment_time += t1_segment
+    t0 = time.time()
+    seg_cap = llm.describe_segment(fusion_texts)
+    tseg = time.time() - t0
+    SEG_total += tseg
 
-    scene_results["segment_caption"] = {
-        "text": segment_caption,
-        "time": round(t1_segment, 4)
-    }
+    scene_res["frames"] = frame_fusions
+    scene_res["segment_caption"] = {"text": seg_cap, "time": tseg}
+    results.append(scene_res)
 
-    results.append(scene_results)
-
-# ------------------------
-# Pipeline summary
-# ------------------------
 pipeline_time = time.time() - pipeline_start
 pipeline_mem_end = mem_mb()
 
-print("\n[PIPELINE SUMMARY]")
-print(f"Scenes processed: {len(scenes)}")
-print(f"Total frames: {sum(len(s['frames']) for s in results)}")
-print(f"Pipeline runtime: {pipeline_time:.2f}s")
-print(f"Memory usage delta: {pipeline_mem_end - pipeline_mem_start:.2f} MB")
-print(f"Total YOLO time: {overall_yolo_time:.2f}s")
-print(f"Total BLIP time: {overall_blip_time:.2f}s")
-print(f"Total LLM segment caption time: {overall_segment_time:.2f}s")
 
-# ------------------------
-# Print all segment captions at the end
-# ------------------------
+print("\n[SUMMARY]")
+print(f"Scenes: {len(scenes)}")
+print(f"Scene detection: {s_time:.2f}s")
+print(f"Sampling: {f_time:.2f}s")
+print(f"YOLO total: {YOLO_total:.2f}s")
+print(f"BLIP total: {BLIP_total:.2f}s")
+print(f"LLM total: {SEG_total:.2f}s")
+print(f"Pipeline time: {pipeline_time:.2f}s")
+print(f"Memory delta: {pipeline_mem_end - pipeline_mem_start:.2f} MB")
+
 print("\n[SEGMENT CAPTIONS]")
-for scene in results:
-    print(f"Scene {scene['scene_index']}:")
-    print(scene["segment_caption"]["text"])
-    print("---")
+for sc in results:
+    print(f"Scene {sc['scene_index']}: {sc['segment_caption']['text']}\n---")
 
-# ------------------------
-# Save JSON
-# ------------------------
-with open("/output/llm_results/results_fusion.json", "w") as f:
+os.makedirs("output/llm_results", exist_ok=True)
+with open("output/llm_results/results.json", "w") as f:
     json.dump(results, f, indent=2)
-print("[INFO] Results saved to results_fusion.json")
+print("[INFO] Results saved to output/llm_results/results_fusion.json")

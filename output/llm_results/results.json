@@ -1,0 +1,2969 @@
+[
+  {
+    "scene_index": 0,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8897423148155212
+          }
+        ],
+        "blip_caption": "a video frame of a woman speaking at a podium",
+        "metrics": {
+          "yolo_time": 2.0220465660095215,
+          "blip_time": 11.248946905136108,
+          "yolo_cpu": 70.9,
+          "yolo_ram": 405.03125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 85.8,
+          "blip_ram": 1038.28515625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9062914252281189
+          }
+        ],
+        "blip_caption": "a video frame of mala youzai speaking at a podium",
+        "metrics": {
+          "yolo_time": 0.6507737636566162,
+          "blip_time": 4.357177019119263,
+          "yolo_cpu": 96.2,
+          "yolo_ram": 1035.0234375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 96.7,
+          "blip_ram": 1116.109375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9236393570899963
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a red shawl",
+        "metrics": {
+          "yolo_time": 0.3298642635345459,
+          "blip_time": 3.258711814880371,
+          "yolo_cpu": 98.4,
+          "yolo_ram": 1110.8359375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.7,
+          "blip_ram": 1123.27734375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A woman, identified as Mala Youzai in one frame, is speaking at a podium. She is also seen wearing a red shawl.",
+      "time": 8.805301666259766
+    }
+  },
+  {
+    "scene_index": 1,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8687061667442322
+          },
+          {
+            "label": "person",
+            "confidence": 0.8585459589958191
+          },
+          {
+            "label": "person",
+            "confidence": 0.8156789541244507
+          },
+          {
+            "label": "tie",
+            "confidence": 0.7978988289833069
+          },
+          {
+            "label": "person",
+            "confidence": 0.7227979898452759
+          },
+          {
+            "label": "person",
+            "confidence": 0.7001180052757263
+          },
+          {
+            "label": "person",
+            "confidence": 0.6935699582099915
+          },
+          {
+            "label": "tie",
+            "confidence": 0.6255990862846375
+          },
+          {
+            "label": "person",
+            "confidence": 0.5818971991539001
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5201577544212341
+          },
+          {
+            "label": "person",
+            "confidence": 0.5086597204208374
+          },
+          {
+            "label": "person",
+            "confidence": 0.49825718998908997
+          },
+          {
+            "label": "person",
+            "confidence": 0.35891416668891907
+          },
+          {
+            "label": "person",
+            "confidence": 0.35078030824661255
+          },
+          {
+            "label": "person",
+            "confidence": 0.260052353143692
+          }
+        ],
+        "blip_caption": "a video frame of a group of people sitting in a crowd",
+        "metrics": {
+          "yolo_time": 0.3746507167816162,
+          "blip_time": 3.67818546295166,
+          "yolo_cpu": 34.1,
+          "yolo_ram": 1108.65625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.3,
+          "blip_ram": 1130.9296875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8555611968040466
+          },
+          {
+            "label": "person",
+            "confidence": 0.8536137938499451
+          },
+          {
+            "label": "person",
+            "confidence": 0.8334384560585022
+          },
+          {
+            "label": "person",
+            "confidence": 0.8296976089477539
+          },
+          {
+            "label": "tie",
+            "confidence": 0.7942985892295837
+          },
+          {
+            "label": "person",
+            "confidence": 0.7613093852996826
+          },
+          {
+            "label": "person",
+            "confidence": 0.6022458076477051
+          },
+          {
+            "label": "person",
+            "confidence": 0.5640627145767212
+          },
+          {
+            "label": "tie",
+            "confidence": 0.5435805916786194
+          },
+          {
+            "label": "person",
+            "confidence": 0.43292465806007385
+          },
+          {
+            "label": "person",
+            "confidence": 0.33897456526756287
+          },
+          {
+            "label": "person",
+            "confidence": 0.3335503339767456
+          },
+          {
+            "label": "person",
+            "confidence": 0.3041926622390747
+          },
+          {
+            "label": "person",
+            "confidence": 0.2785691022872925
+          },
+          {
+            "label": "person",
+            "confidence": 0.2754272520542145
+          },
+          {
+            "label": "person",
+            "confidence": 0.2738053798675537
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people clapping and clapping",
+        "metrics": {
+          "yolo_time": 0.633521318435669,
+          "blip_time": 5.253136873245239,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1136.390625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 100.0,
+          "blip_ram": 1141.19140625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9133812785148621
+          },
+          {
+            "label": "person",
+            "confidence": 0.8954089879989624
+          },
+          {
+            "label": "person",
+            "confidence": 0.8498440980911255
+          },
+          {
+            "label": "tie",
+            "confidence": 0.7815281748771667
+          },
+          {
+            "label": "person",
+            "confidence": 0.7693490386009216
+          },
+          {
+            "label": "person",
+            "confidence": 0.7310229539871216
+          },
+          {
+            "label": "tie",
+            "confidence": 0.6928289532661438
+          },
+          {
+            "label": "person",
+            "confidence": 0.6650502681732178
+          },
+          {
+            "label": "person",
+            "confidence": 0.6384899020195007
+          },
+          {
+            "label": "person",
+            "confidence": 0.6098574995994568
+          },
+          {
+            "label": "person",
+            "confidence": 0.5775037407875061
+          },
+          {
+            "label": "person",
+            "confidence": 0.3702961206436157
+          },
+          {
+            "label": "chair",
+            "confidence": 0.27093619108200073
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people sitting in chairs",
+        "metrics": {
+          "yolo_time": 0.3977348804473877,
+          "blip_time": 4.406224012374878,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1139.11328125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.7,
+          "blip_ram": 1150.00390625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A crowd of people, some wearing ties, are initially seated. They then transition to clapping, before subsequently returning to a seated position in chairs.",
+      "time": 4.320235967636108
+    }
+  },
+  {
+    "scene_index": 2,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "chair",
+            "confidence": 0.28957831859588623
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people",
+        "metrics": {
+          "yolo_time": 0.8521993160247803,
+          "blip_time": 5.001799583435059,
+          "yolo_cpu": 72.6,
+          "yolo_ram": 1141.66796875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.9,
+          "blip_ram": 1146.96484375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.47189152240753174
+          },
+          {
+            "label": "person",
+            "confidence": 0.4299564063549042
+          },
+          {
+            "label": "person",
+            "confidence": 0.4118223786354065
+          },
+          {
+            "label": "person",
+            "confidence": 0.39934539794921875
+          },
+          {
+            "label": "person",
+            "confidence": 0.3746795654296875
+          },
+          {
+            "label": "person",
+            "confidence": 0.35166728496551514
+          },
+          {
+            "label": "person",
+            "confidence": 0.32712987065315247
+          },
+          {
+            "label": "person",
+            "confidence": 0.2982924282550812
+          },
+          {
+            "label": "person",
+            "confidence": 0.28328919410705566
+          },
+          {
+            "label": "tv",
+            "confidence": 0.2669537365436554
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people at a convention",
+        "metrics": {
+          "yolo_time": 0.2728145122528076,
+          "blip_time": 4.364681005477905,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1143.51171875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 100.0,
+          "blip_ram": 1149.73828125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.43445655703544617
+          },
+          {
+            "label": "person",
+            "confidence": 0.3653798997402191
+          },
+          {
+            "label": "person",
+            "confidence": 0.33837294578552246
+          },
+          {
+            "label": "person",
+            "confidence": 0.3269200026988983
+          },
+          {
+            "label": "person",
+            "confidence": 0.32189473509788513
+          },
+          {
+            "label": "person",
+            "confidence": 0.2807961702346802
+          },
+          {
+            "label": "person",
+            "confidence": 0.26281625032424927
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people in a large room",
+        "metrics": {
+          "yolo_time": 0.4009816646575928,
+          "blip_time": 4.923208236694336,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1147.125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 100.0,
+          "blip_ram": 1153.0546875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A crowd of people is consistently present throughout the segment, gathered in a large indoor space that appears to be an event or convention. A chair is visible initially, followed by the appearance of a TV.",
+      "time": 4.2722930908203125
+    }
+  },
+  {
+    "scene_index": 3,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.5762261152267456
+          },
+          {
+            "label": "person",
+            "confidence": 0.43452221155166626
+          },
+          {
+            "label": "chair",
+            "confidence": 0.3746498227119446
+          }
+        ],
+        "blip_caption": "a video frame of a group of people in a church",
+        "metrics": {
+          "yolo_time": 0.3722717761993408,
+          "blip_time": 4.89691424369812,
+          "yolo_cpu": 36.6,
+          "yolo_ram": 1128.6953125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.9,
+          "blip_ram": 1162.84375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9340137243270874
+          },
+          {
+            "label": "person",
+            "confidence": 0.9056835770606995
+          },
+          {
+            "label": "person",
+            "confidence": 0.9009863138198853
+          },
+          {
+            "label": "tie",
+            "confidence": 0.81084144115448
+          },
+          {
+            "label": "person",
+            "confidence": 0.8062589764595032
+          },
+          {
+            "label": "tie",
+            "confidence": 0.6832930445671082
+          },
+          {
+            "label": "chair",
+            "confidence": 0.6415648460388184
+          },
+          {
+            "label": "person",
+            "confidence": 0.6396945714950562
+          },
+          {
+            "label": "chair",
+            "confidence": 0.6329189538955688
+          },
+          {
+            "label": "person",
+            "confidence": 0.5765319466590881
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5692638158798218
+          },
+          {
+            "label": "chair",
+            "confidence": 0.4896893799304962
+          },
+          {
+            "label": "person",
+            "confidence": 0.43244901299476624
+          },
+          {
+            "label": "person",
+            "confidence": 0.4028368890285492
+          },
+          {
+            "label": "person",
+            "confidence": 0.39732807874679565
+          },
+          {
+            "label": "person",
+            "confidence": 0.3644047677516937
+          },
+          {
+            "label": "person",
+            "confidence": 0.3415992558002472
+          },
+          {
+            "label": "chair",
+            "confidence": 0.3300917446613312
+          },
+          {
+            "label": "person",
+            "confidence": 0.3279991149902344
+          },
+          {
+            "label": "person",
+            "confidence": 0.30977341532707214
+          },
+          {
+            "label": "person",
+            "confidence": 0.30511102080345154
+          },
+          {
+            "label": "laptop",
+            "confidence": 0.29167020320892334
+          },
+          {
+            "label": "tie",
+            "confidence": 0.28533005714416504
+          }
+        ],
+        "blip_caption": "a video frame of queen elizabeth, duchess of cambridge and prince albert of edinburgh",
+        "metrics": {
+          "yolo_time": 0.3028593063354492,
+          "blip_time": 5.310344457626343,
+          "yolo_cpu": 98.1,
+          "yolo_ram": 1158.17578125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.9,
+          "blip_ram": 1160.72265625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9240726828575134
+          },
+          {
+            "label": "person",
+            "confidence": 0.9046176075935364
+          },
+          {
+            "label": "person",
+            "confidence": 0.8900682330131531
+          },
+          {
+            "label": "person",
+            "confidence": 0.8455927968025208
+          },
+          {
+            "label": "tie",
+            "confidence": 0.8045518398284912
+          },
+          {
+            "label": "tie",
+            "confidence": 0.7987802624702454
+          },
+          {
+            "label": "person",
+            "confidence": 0.6293545365333557
+          },
+          {
+            "label": "chair",
+            "confidence": 0.618384838104248
+          },
+          {
+            "label": "person",
+            "confidence": 0.5752954483032227
+          },
+          {
+            "label": "person",
+            "confidence": 0.5608446002006531
+          },
+          {
+            "label": "person",
+            "confidence": 0.5531787276268005
+          },
+          {
+            "label": "chair",
+            "confidence": 0.543220579624176
+          },
+          {
+            "label": "chair",
+            "confidence": 0.4803682267665863
+          },
+          {
+            "label": "person",
+            "confidence": 0.4452468752861023
+          },
+          {
+            "label": "laptop",
+            "confidence": 0.4021238088607788
+          },
+          {
+            "label": "chair",
+            "confidence": 0.3993414044380188
+          },
+          {
+            "label": "tie",
+            "confidence": 0.3251242935657501
+          },
+          {
+            "label": "chair",
+            "confidence": 0.30511969327926636
+          },
+          {
+            "label": "person",
+            "confidence": 0.2948395013809204
+          },
+          {
+            "label": "person",
+            "confidence": 0.28923073410987854
+          },
+          {
+            "label": "tie",
+            "confidence": 0.2704993784427643
+          },
+          {
+            "label": "person",
+            "confidence": 0.2676323652267456
+          },
+          {
+            "label": "person",
+            "confidence": 0.25348371267318726
+          }
+        ],
+        "blip_caption": "a video frame of the prince and duchess of wales at the royal wedding",
+        "metrics": {
+          "yolo_time": 0.4194643497467041,
+          "blip_time": 4.414775848388672,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1162.33203125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 100.0,
+          "blip_ram": 1163.3125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The segment begins by showing a group of people and a chair in what is identified as a church. The scene quickly transitions to a large, formal gathering, where numerous people, many wearing ties, are seated on chairs. Prominent royal figures are identified among the attendees, including Queen Elizabeth, the Duchess of Cambridge, Prince Albert of Edinburgh, and the Prince and Duchess of Wales, indicating the event is a royal wedding. A laptop is also visible in the later frames.",
+      "time": 5.341231822967529
+    }
+  },
+  {
+    "scene_index": 4,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9385250210762024
+          }
+        ],
+        "blip_caption": "a video frame of person speaking at a podium",
+        "metrics": {
+          "yolo_time": 0.3532891273498535,
+          "blip_time": 3.3081471920013428,
+          "yolo_cpu": 23.1,
+          "yolo_ram": 1139.703125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.6,
+          "blip_ram": 1164.01953125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9074930548667908
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink shawl",
+        "metrics": {
+          "yolo_time": 0.3194003105163574,
+          "blip_time": 3.163743734359741,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1160.73828125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.4,
+          "blip_ram": 1177.93359375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9068673253059387
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink shawr",
+        "metrics": {
+          "yolo_time": 0.2344045639038086,
+          "blip_time": 3.1841928958892822,
+          "yolo_cpu": 97.5,
+          "yolo_ram": 1173.9921875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.0,
+          "blip_ram": 1173.97265625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A woman wearing a pink shawl is speaking at a podium.",
+      "time": 5.491233587265015
+    }
+  },
+  {
+    "scene_index": 5,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8690534830093384
+          },
+          {
+            "label": "person",
+            "confidence": 0.7792347073554993
+          },
+          {
+            "label": "tie",
+            "confidence": 0.7523903846740723
+          },
+          {
+            "label": "person",
+            "confidence": 0.6115062236785889
+          },
+          {
+            "label": "person",
+            "confidence": 0.6081756949424744
+          },
+          {
+            "label": "person",
+            "confidence": 0.5362001657485962
+          },
+          {
+            "label": "person",
+            "confidence": 0.481017529964447
+          },
+          {
+            "label": "person",
+            "confidence": 0.4083322286605835
+          },
+          {
+            "label": "person",
+            "confidence": 0.39819374680519104
+          },
+          {
+            "label": "tie",
+            "confidence": 0.39069730043411255
+          },
+          {
+            "label": "person",
+            "confidence": 0.3603197932243347
+          },
+          {
+            "label": "person",
+            "confidence": 0.2772698402404785
+          }
+        ],
+        "blip_caption": "a video frame of a woman in a sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar",
+        "metrics": {
+          "yolo_time": 0.3562476634979248,
+          "blip_time": 5.89592981338501,
+          "yolo_cpu": 29.4,
+          "yolo_ram": 1152.28515625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.7,
+          "blip_ram": 1181.7578125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9202818274497986
+          },
+          {
+            "label": "person",
+            "confidence": 0.8194745182991028
+          },
+          {
+            "label": "tie",
+            "confidence": 0.7823334336280823
+          },
+          {
+            "label": "person",
+            "confidence": 0.7316156625747681
+          },
+          {
+            "label": "person",
+            "confidence": 0.7270916700363159
+          },
+          {
+            "label": "person",
+            "confidence": 0.7250499725341797
+          },
+          {
+            "label": "person",
+            "confidence": 0.7000113129615784
+          },
+          {
+            "label": "person",
+            "confidence": 0.6882856488227844
+          },
+          {
+            "label": "person",
+            "confidence": 0.5532320141792297
+          },
+          {
+            "label": "tie",
+            "confidence": 0.41487255692481995
+          },
+          {
+            "label": "person",
+            "confidence": 0.3552490472793579
+          },
+          {
+            "label": "person",
+            "confidence": 0.29473310708999634
+          },
+          {
+            "label": "person",
+            "confidence": 0.27008166909217834
+          },
+          {
+            "label": "person",
+            "confidence": 0.25797104835510254
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people sitting in chairs",
+        "metrics": {
+          "yolo_time": 0.25586485862731934,
+          "blip_time": 3.318103790283203,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1183.0703125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.6,
+          "blip_ram": 1171.5234375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.2875303328037262
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people",
+        "metrics": {
+          "yolo_time": 0.2719848155975342,
+          "blip_time": 3.109443187713623,
+          "yolo_cpu": 97.8,
+          "yolo_ram": 1154.53125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.4,
+          "blip_ram": 1188.65625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The segment depicts a crowd of people, with several individuals observed wearing ties. A significant portion of the crowd is shown seated in chairs.",
+      "time": 8.267855882644653
+    }
+  },
+  {
+    "scene_index": 6,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.48323121666908264
+          },
+          {
+            "label": "person",
+            "confidence": 0.382099449634552
+          },
+          {
+            "label": "person",
+            "confidence": 0.36883851885795593
+          },
+          {
+            "label": "person",
+            "confidence": 0.34550315141677856
+          },
+          {
+            "label": "person",
+            "confidence": 0.34100469946861267
+          },
+          {
+            "label": "person",
+            "confidence": 0.32399865984916687
+          },
+          {
+            "label": "person",
+            "confidence": 0.31767359375953674
+          },
+          {
+            "label": "person",
+            "confidence": 0.28327280282974243
+          },
+          {
+            "label": "person",
+            "confidence": 0.27259498834609985
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people",
+        "metrics": {
+          "yolo_time": 0.29680347442626953,
+          "blip_time": 3.495314359664917,
+          "yolo_cpu": 21.2,
+          "yolo_ram": 1193.84765625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.5,
+          "blip_ram": 1181.21875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.483984112739563
+          },
+          {
+            "label": "person",
+            "confidence": 0.4314822256565094
+          },
+          {
+            "label": "tv",
+            "confidence": 0.3451288938522339
+          },
+          {
+            "label": "person",
+            "confidence": 0.30418357253074646
+          },
+          {
+            "label": "clock",
+            "confidence": 0.2924666404724121
+          },
+          {
+            "label": "person",
+            "confidence": 0.27176767587661743
+          },
+          {
+            "label": "person",
+            "confidence": 0.2714817225933075
+          },
+          {
+            "label": "person",
+            "confidence": 0.25064772367477417
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people in a large room",
+        "metrics": {
+          "yolo_time": 0.43044018745422363,
+          "blip_time": 3.4454803466796875,
+          "yolo_cpu": 99.6,
+          "yolo_ram": 1183.88671875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.7,
+          "blip_ram": 1189.65625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.45115479826927185
+          },
+          {
+            "label": "person",
+            "confidence": 0.4066201448440552
+          },
+          {
+            "label": "clock",
+            "confidence": 0.4036237597465515
+          },
+          {
+            "label": "person",
+            "confidence": 0.36446383595466614
+          },
+          {
+            "label": "person",
+            "confidence": 0.3133484721183777
+          },
+          {
+            "label": "person",
+            "confidence": 0.3071419894695282
+          },
+          {
+            "label": "person",
+            "confidence": 0.28626713156700134
+          },
+          {
+            "label": "person",
+            "confidence": 0.25305432081222534
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people in a large room",
+        "metrics": {
+          "yolo_time": 0.25788402557373047,
+          "blip_time": 3.2285232543945312,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1194.28125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.9,
+          "blip_ram": 1197.7265625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A crowd of people is consistently observed in a large room. A clock is present throughout the segment after the initial frame, and a television is briefly detected in one frame.",
+      "time": 5.234850168228149
+    }
+  },
+  {
+    "scene_index": 7,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.6039618849754333
+          },
+          {
+            "label": "person",
+            "confidence": 0.5800639986991882
+          },
+          {
+            "label": "person",
+            "confidence": 0.5430171489715576
+          },
+          {
+            "label": "person",
+            "confidence": 0.5402954816818237
+          },
+          {
+            "label": "person",
+            "confidence": 0.48949122428894043
+          },
+          {
+            "label": "person",
+            "confidence": 0.4027383327484131
+          },
+          {
+            "label": "person",
+            "confidence": 0.3914809823036194
+          },
+          {
+            "label": "clock",
+            "confidence": 0.3771454691886902
+          },
+          {
+            "label": "person",
+            "confidence": 0.2882693409919739
+          },
+          {
+            "label": "person",
+            "confidence": 0.2684459984302521
+          }
+        ],
+        "blip_caption": "a video frame of a large group of people",
+        "metrics": {
+          "yolo_time": 0.32112717628479004,
+          "blip_time": 3.040111780166626,
+          "yolo_cpu": 25.0,
+          "yolo_ram": 1194.25,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.3,
+          "blip_ram": 1185.00390625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.865272581577301
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink hina",
+        "metrics": {
+          "yolo_time": 0.21811914443969727,
+          "blip_time": 3.263918399810791,
+          "yolo_cpu": 98.2,
+          "yolo_ram": 1194.7265625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.9,
+          "blip_ram": 1198.04296875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9241032004356384
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink shawl",
+        "metrics": {
+          "yolo_time": 0.19917035102844238,
+          "blip_time": 3.010128974914551,
+          "yolo_cpu": 96.2,
+          "yolo_ram": 1203.875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.3,
+          "blip_ram": 1199.52734375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The video segment initially shows a large group of people, with a clock also visible. It then transitions to focus on a single woman, who is consistently depicted wearing a pink shawl.",
+      "time": 6.099238157272339
+    }
+  },
+  {
+    "scene_index": 8,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9435368776321411
+          },
+          {
+            "label": "person",
+            "confidence": 0.7334309220314026
+          },
+          {
+            "label": "chair",
+            "confidence": 0.6406039595603943
+          },
+          {
+            "label": "chair",
+            "confidence": 0.34649088978767395
+          }
+        ],
+        "blip_caption": "a video frame of a man sitting in a chair",
+        "metrics": {
+          "yolo_time": 0.33199191093444824,
+          "blip_time": 3.046365976333618,
+          "yolo_cpu": 23.3,
+          "yolo_ram": 1197.5078125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 97.7,
+          "blip_ram": 1202.28125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9520109295845032
+          },
+          {
+            "label": "person",
+            "confidence": 0.703983724117279
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5754073858261108
+          },
+          {
+            "label": "chair",
+            "confidence": 0.4063319265842438
+          }
+        ],
+        "blip_caption": "a video frame of pm modi modi ' s speech in parliament",
+        "metrics": {
+          "yolo_time": 0.27916955947875977,
+          "blip_time": 3.4980249404907227,
+          "yolo_cpu": 99.3,
+          "yolo_ram": 1200.359375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 97.8,
+          "blip_ram": 1212.8125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9564967751502991
+          },
+          {
+            "label": "person",
+            "confidence": 0.6948056221008301
+          },
+          {
+            "label": "chair",
+            "confidence": 0.6322274804115295
+          }
+        ],
+        "blip_caption": "a video frame of pm modi ' s speech in parliament",
+        "metrics": {
+          "yolo_time": 0.26671886444091797,
+          "blip_time": 3.345935583114624,
+          "yolo_cpu": 97.9,
+          "yolo_ram": 1216.78125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.6,
+          "blip_ram": 1206.35546875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The segment depicts PM Modi giving a speech in parliament. Multiple people and chairs are visible, with one man initially shown sitting in a chair.",
+      "time": 7.408326864242554
+    }
+  },
+  {
+    "scene_index": 9,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9068328142166138
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink shawl",
+        "metrics": {
+          "yolo_time": 0.27591371536254883,
+          "blip_time": 3.1269381046295166,
+          "yolo_cpu": 42.6,
+          "yolo_ram": 1202.71875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.0,
+          "blip_ram": 1214.578125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9295560121536255
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink hina speaks at a podium",
+        "metrics": {
+          "yolo_time": 0.2268056869506836,
+          "blip_time": 3.757664680480957,
+          "yolo_cpu": 99.1,
+          "yolo_ram": 1221.44921875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.4,
+          "blip_ram": 1219.359375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8309539556503296
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink hina",
+        "metrics": {
+          "yolo_time": 0.27002525329589844,
+          "blip_time": 3.2502644062042236,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1224.1328125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.4,
+          "blip_ram": 1215.91015625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A woman wearing a pink shawl is seen speaking at a podium.",
+      "time": 5.858457565307617
+    }
+  },
+  {
+    "scene_index": 10,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9574171900749207
+          },
+          {
+            "label": "person",
+            "confidence": 0.8330442905426025
+          },
+          {
+            "label": "chair",
+            "confidence": 0.6047276854515076
+          }
+        ],
+        "blip_caption": "a video frame of pm modi modi and pm modi",
+        "metrics": {
+          "yolo_time": 0.2845790386199951,
+          "blip_time": 3.4420621395111084,
+          "yolo_cpu": 25.8,
+          "yolo_ram": 1221.48828125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.7,
+          "blip_ram": 1218.2578125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.950604259967804
+          },
+          {
+            "label": "person",
+            "confidence": 0.8038446307182312
+          },
+          {
+            "label": "chair",
+            "confidence": 0.7532455325126648
+          },
+          {
+            "label": "chair",
+            "confidence": 0.44478917121887207
+          }
+        ],
+        "blip_caption": "a video frame of pm modi modi and pm modi",
+        "metrics": {
+          "yolo_time": 0.25527215003967285,
+          "blip_time": 5.876713752746582,
+          "yolo_cpu": 94.6,
+          "yolo_ram": 1196.86328125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.6,
+          "blip_ram": 1218.05859375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9407855272293091
+          },
+          {
+            "label": "person",
+            "confidence": 0.820184051990509
+          },
+          {
+            "label": "chair",
+            "confidence": 0.633762776851654
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5645722150802612
+          },
+          {
+            "label": "tie",
+            "confidence": 0.25373056530952454
+          }
+        ],
+        "blip_caption": "a video frame of pm modi ' s meeting with pm modi",
+        "metrics": {
+          "yolo_time": 0.28577589988708496,
+          "blip_time": 3.969555139541626,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1218.71875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.3,
+          "blip_ram": 1220.8203125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The segment depicts two individuals, identified by captions as \"PM Modi,\" engaged in a meeting. The scene consistently includes chairs, with the number of detected chairs increasing from one to two over the frames, suggesting a seated formal encounter.",
+      "time": 8.51394248008728
+    }
+  },
+  {
+    "scene_index": 11,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.6217799186706543
+          }
+        ],
+        "blip_caption": "a video frame of a woman speaking at a podium",
+        "metrics": {
+          "yolo_time": 0.3616459369659424,
+          "blip_time": 3.286273717880249,
+          "yolo_cpu": 24.1,
+          "yolo_ram": 1193.08203125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.2,
+          "blip_ram": 1212.3515625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8822054266929626
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink hina",
+        "metrics": {
+          "yolo_time": 0.2569844722747803,
+          "blip_time": 3.284581422805786,
+          "yolo_cpu": 96.2,
+          "yolo_ram": 1197.859375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.4,
+          "blip_ram": 1215.0078125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8855901956558228
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink hina",
+        "metrics": {
+          "yolo_time": 0.2370603084564209,
+          "blip_time": 3.1542162895202637,
+          "yolo_cpu": 99.2,
+          "yolo_ram": 1221.84375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.7,
+          "blip_ram": 1227.90234375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A woman is speaking at a podium, consistently wearing a pink hina throughout the segment.",
+      "time": 5.119690895080566
+    }
+  },
+  {
+    "scene_index": 12,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.7886492609977722
+          },
+          {
+            "label": "person",
+            "confidence": 0.692118763923645
+          },
+          {
+            "label": "person",
+            "confidence": 0.6081131100654602
+          },
+          {
+            "label": "person",
+            "confidence": 0.5396279096603394
+          },
+          {
+            "label": "person",
+            "confidence": 0.42608946561813354
+          },
+          {
+            "label": "person",
+            "confidence": 0.3998664617538452
+          },
+          {
+            "label": "chair",
+            "confidence": 0.3806705176830292
+          },
+          {
+            "label": "person",
+            "confidence": 0.3680514097213745
+          },
+          {
+            "label": "person",
+            "confidence": 0.3585017919540405
+          },
+          {
+            "label": "person",
+            "confidence": 0.3547585606575012
+          },
+          {
+            "label": "cell phone",
+            "confidence": 0.35459378361701965
+          },
+          {
+            "label": "person",
+            "confidence": 0.3159973919391632
+          },
+          {
+            "label": "person",
+            "confidence": 0.3108349144458771
+          },
+          {
+            "label": "person",
+            "confidence": 0.2994017004966736
+          },
+          {
+            "label": "person",
+            "confidence": 0.29661232233047485
+          },
+          {
+            "label": "person",
+            "confidence": 0.2627442181110382
+          }
+        ],
+        "blip_caption": "a video frame of a woman in a crowd clapping",
+        "metrics": {
+          "yolo_time": 0.2290811538696289,
+          "blip_time": 3.0679028034210205,
+          "yolo_cpu": 27.1,
+          "yolo_ram": 1213.51953125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.4,
+          "blip_ram": 1232.80078125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8347063660621643
+          },
+          {
+            "label": "person",
+            "confidence": 0.7908681035041809
+          },
+          {
+            "label": "person",
+            "confidence": 0.4316449463367462
+          },
+          {
+            "label": "person",
+            "confidence": 0.42989808320999146
+          },
+          {
+            "label": "person",
+            "confidence": 0.42498788237571716
+          },
+          {
+            "label": "person",
+            "confidence": 0.3992546498775482
+          },
+          {
+            "label": "person",
+            "confidence": 0.3836401402950287
+          },
+          {
+            "label": "person",
+            "confidence": 0.3300703763961792
+          },
+          {
+            "label": "person",
+            "confidence": 0.3129691481590271
+          },
+          {
+            "label": "person",
+            "confidence": 0.3060545027256012
+          },
+          {
+            "label": "person",
+            "confidence": 0.2921784222126007
+          }
+        ],
+        "blip_caption": "a video frame of a group of women clapping in a crowd",
+        "metrics": {
+          "yolo_time": 0.2065567970275879,
+          "blip_time": 3.617882251739502,
+          "yolo_cpu": 94.7,
+          "yolo_ram": 1229.23046875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.8,
+          "blip_ram": 1234.96484375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.7277674078941345
+          },
+          {
+            "label": "person",
+            "confidence": 0.6609798669815063
+          },
+          {
+            "label": "person",
+            "confidence": 0.6449010968208313
+          },
+          {
+            "label": "person",
+            "confidence": 0.5158308148384094
+          },
+          {
+            "label": "person",
+            "confidence": 0.4828229248523712
+          },
+          {
+            "label": "person",
+            "confidence": 0.44605761766433716
+          },
+          {
+            "label": "person",
+            "confidence": 0.39426979422569275
+          },
+          {
+            "label": "person",
+            "confidence": 0.3618842661380768
+          },
+          {
+            "label": "person",
+            "confidence": 0.3466091752052307
+          },
+          {
+            "label": "person",
+            "confidence": 0.3229987323284149
+          },
+          {
+            "label": "person",
+            "confidence": 0.3177245259284973
+          },
+          {
+            "label": "person",
+            "confidence": 0.3082219064235687
+          },
+          {
+            "label": "person",
+            "confidence": 0.27217549085617065
+          }
+        ],
+        "blip_caption": "a video frame of a group of people clapping in a crowd",
+        "metrics": {
+          "yolo_time": 0.26598620414733887,
+          "blip_time": 3.2054359912872314,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1219.265625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.7,
+          "blip_ram": 1231.8515625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The video segment depicts a crowd of people, prominently featuring women, engaged in clapping. The focus shifts from an individual woman to a group of women, and then to a broader group of people, all continuously clapping within the crowd.",
+      "time": 5.521938323974609
+    }
+  },
+  {
+    "scene_index": 13,
+    "frames": [
+      {
+        "yolo_detections": [],
+        "blip_caption": "a video frame of a crowd of people at a festival",
+        "metrics": {
+          "yolo_time": 0.3277299404144287,
+          "blip_time": 3.0766589641571045,
+          "yolo_cpu": 25.0,
+          "yolo_ram": 1203.57421875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.3,
+          "blip_ram": 1198.203125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "chair",
+            "confidence": 0.5306456685066223
+          },
+          {
+            "label": "person",
+            "confidence": 0.40430349111557007
+          },
+          {
+            "label": "chair",
+            "confidence": 0.3762418031692505
+          },
+          {
+            "label": "person",
+            "confidence": 0.32814162969589233
+          },
+          {
+            "label": "person",
+            "confidence": 0.2913450002670288
+          },
+          {
+            "label": "person",
+            "confidence": 0.26665034890174866
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people in a church",
+        "metrics": {
+          "yolo_time": 0.33174777030944824,
+          "blip_time": 3.3612756729125977,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1184.671875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.8,
+          "blip_ram": 1241.78125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [],
+        "blip_caption": "a video frame of a woman in a red dress in front of a crowd",
+        "metrics": {
+          "yolo_time": 0.2461378574371338,
+          "blip_time": 3.6775715351104736,
+          "yolo_cpu": 96.9,
+          "yolo_ram": 1219.52734375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.4,
+          "blip_ram": 1246.328125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The segment begins with a large crowd, possibly at a festival. It then transitions to a scene depicting multiple people, some seated on chairs, within what is identified as a church setting. The segment concludes with a focus on a woman in a red dress standing prominently in front of a crowd.",
+      "time": 5.079124450683594
+    }
+  },
+  {
+    "scene_index": 14,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9330456852912903
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink scarf",
+        "metrics": {
+          "yolo_time": 0.2208709716796875,
+          "blip_time": 2.895813226699829,
+          "yolo_cpu": 23.4,
+          "yolo_ram": 1254.59375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.5,
+          "blip_ram": 1239.703125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9162281155586243
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink hina",
+        "metrics": {
+          "yolo_time": 0.2655806541442871,
+          "blip_time": 3.185526132583618,
+          "yolo_cpu": 94.3,
+          "yolo_ram": 1214.24609375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.2,
+          "blip_ram": 1237.29296875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.89377760887146
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink shawr",
+        "metrics": {
+          "yolo_time": 0.31641602516174316,
+          "blip_time": 3.0981218814849854,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1238.9765625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.3,
+          "blip_ram": 1239.58203125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A woman is consistently observed wearing a pink scarf or shawl.",
+      "time": 7.073340892791748
+    }
+  },
+  {
+    "scene_index": 15,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8145110011100769
+          },
+          {
+            "label": "person",
+            "confidence": 0.7980232238769531
+          },
+          {
+            "label": "person",
+            "confidence": 0.7936635613441467
+          },
+          {
+            "label": "person",
+            "confidence": 0.7207500338554382
+          },
+          {
+            "label": "person",
+            "confidence": 0.6457893252372742
+          },
+          {
+            "label": "person",
+            "confidence": 0.33565032482147217
+          },
+          {
+            "label": "person",
+            "confidence": 0.2815536856651306
+          },
+          {
+            "label": "person",
+            "confidence": 0.26837608218193054
+          }
+        ],
+        "blip_caption": "a video frame of a woman in red sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar sar",
+        "metrics": {
+          "yolo_time": 0.2948744297027588,
+          "blip_time": 5.423286199569702,
+          "yolo_cpu": 22.9,
+          "yolo_ram": 1240.9140625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 97.9,
+          "blip_ram": 1260.20703125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9358498454093933
+          },
+          {
+            "label": "person",
+            "confidence": 0.9320326447486877
+          },
+          {
+            "label": "person",
+            "confidence": 0.8760761618614197
+          },
+          {
+            "label": "person",
+            "confidence": 0.8733220100402832
+          },
+          {
+            "label": "person",
+            "confidence": 0.8157095909118652
+          },
+          {
+            "label": "person",
+            "confidence": 0.7930123805999756
+          },
+          {
+            "label": "person",
+            "confidence": 0.5046769976615906
+          },
+          {
+            "label": "person",
+            "confidence": 0.4417203962802887
+          },
+          {
+            "label": "person",
+            "confidence": 0.4183080792427063
+          }
+        ],
+        "blip_caption": "a video frame of the prime of pakistan, sheikh sheikh sheikh sheikh sheikh sheikh sheikh sheikh sheikh sheikh sheikh sheikh",
+        "metrics": {
+          "yolo_time": 0.24648571014404297,
+          "blip_time": 4.511512756347656,
+          "yolo_cpu": 99.2,
+          "yolo_ram": 1256.32421875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.6,
+          "blip_ram": 1256.59375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.889079749584198
+          },
+          {
+            "label": "person",
+            "confidence": 0.7935279607772827
+          },
+          {
+            "label": "person",
+            "confidence": 0.7246113419532776
+          },
+          {
+            "label": "person",
+            "confidence": 0.7174939513206482
+          },
+          {
+            "label": "person",
+            "confidence": 0.6793113946914673
+          },
+          {
+            "label": "person",
+            "confidence": 0.6016197800636292
+          },
+          {
+            "label": "person",
+            "confidence": 0.34915250539779663
+          },
+          {
+            "label": "person",
+            "confidence": 0.3010449707508087
+          }
+        ],
+        "blip_caption": "a video frame of a woman in a red sari sari sari sari sari sari sari sari sari sar",
+        "metrics": {
+          "yolo_time": 0.338076114654541,
+          "blip_time": 6.526779651641846,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1248.85546875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 100.0,
+          "blip_ram": 1260.328125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A segment featuring 8-9 people, with a central woman identified as wearing a red sari. In the middle frame, this woman is specifically identified as the Prime Minister of Pakistan.",
+      "time": 4.777245759963989
+    }
+  },
+  {
+    "scene_index": 16,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9138078689575195
+          }
+        ],
+        "blip_caption": "a video frame of person speaking at a podium",
+        "metrics": {
+          "yolo_time": 0.43002963066101074,
+          "blip_time": 3.8930890560150146,
+          "yolo_cpu": 79.6,
+          "yolo_ram": 1202.19921875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 100.0,
+          "blip_ram": 1229.80859375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9441078901290894
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink hina",
+        "metrics": {
+          "yolo_time": 0.2502110004425049,
+          "blip_time": 3.1443517208099365,
+          "yolo_cpu": 99.2,
+          "yolo_ram": 1212.2578125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.6,
+          "blip_ram": 1223.98046875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9067152142524719
+          }
+        ],
+        "blip_caption": "a video frame of a woman speaking at a podium with a microphone in front of her",
+        "metrics": {
+          "yolo_time": 0.26959681510925293,
+          "blip_time": 4.118132591247559,
+          "yolo_cpu": 97.8,
+          "yolo_ram": 1208.17578125,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.3,
+          "blip_ram": 1235.51171875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A woman wearing pink is speaking at a podium, with a microphone positioned in front of her.",
+      "time": 6.05406379699707
+    }
+  },
+  {
+    "scene_index": 17,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8153030872344971
+          }
+        ],
+        "blip_caption": "a video frame of a woman speaking at a podium",
+        "metrics": {
+          "yolo_time": 0.4584512710571289,
+          "blip_time": 2.9530117511749268,
+          "yolo_cpu": 27.3,
+          "yolo_ram": 1226.06640625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.5,
+          "blip_ram": 1243.45703125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.7291802167892456
+          },
+          {
+            "label": "person",
+            "confidence": 0.7094767093658447
+          },
+          {
+            "label": "person",
+            "confidence": 0.6747813820838928
+          },
+          {
+            "label": "person",
+            "confidence": 0.64082932472229
+          },
+          {
+            "label": "person",
+            "confidence": 0.6072651743888855
+          },
+          {
+            "label": "person",
+            "confidence": 0.6009816527366638
+          },
+          {
+            "label": "person",
+            "confidence": 0.36590299010276794
+          },
+          {
+            "label": "person",
+            "confidence": 0.29297974705696106
+          },
+          {
+            "label": "person",
+            "confidence": 0.26540353894233704
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people clapping",
+        "metrics": {
+          "yolo_time": 0.327437162399292,
+          "blip_time": 3.9049296379089355,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1239.87890625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.6,
+          "blip_ram": 1245.91015625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.7700796723365784
+          },
+          {
+            "label": "person",
+            "confidence": 0.5997005105018616
+          },
+          {
+            "label": "person",
+            "confidence": 0.5846889019012451
+          },
+          {
+            "label": "person",
+            "confidence": 0.46151238679885864
+          },
+          {
+            "label": "person",
+            "confidence": 0.45498383045196533
+          },
+          {
+            "label": "person",
+            "confidence": 0.4490160644054413
+          },
+          {
+            "label": "person",
+            "confidence": 0.3423338830471039
+          },
+          {
+            "label": "person",
+            "confidence": 0.2839043438434601
+          },
+          {
+            "label": "person",
+            "confidence": 0.26020193099975586
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people clapping",
+        "metrics": {
+          "yolo_time": 0.21207022666931152,
+          "blip_time": 4.999531269073486,
+          "yolo_cpu": 94.6,
+          "yolo_ram": 1251.02734375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 99.7,
+          "blip_ram": 1240.2421875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The video opens with a woman speaking at a podium. The scene then shifts to a large crowd of people who are actively clapping, an action that continues for the remainder of the segment.",
+      "time": 6.116455793380737
+    }
+  },
+  {
+    "scene_index": 18,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9122565984725952
+          },
+          {
+            "label": "person",
+            "confidence": 0.9077969193458557
+          },
+          {
+            "label": "person",
+            "confidence": 0.9040449857711792
+          },
+          {
+            "label": "person",
+            "confidence": 0.8438170552253723
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5670422911643982
+          },
+          {
+            "label": "person",
+            "confidence": 0.5442270636558533
+          },
+          {
+            "label": "laptop",
+            "confidence": 0.5321704149246216
+          },
+          {
+            "label": "person",
+            "confidence": 0.5089794993400574
+          },
+          {
+            "label": "person",
+            "confidence": 0.4970916211605072
+          },
+          {
+            "label": "chair",
+            "confidence": 0.49370867013931274
+          },
+          {
+            "label": "chair",
+            "confidence": 0.48122474551200867
+          },
+          {
+            "label": "person",
+            "confidence": 0.43643441796302795
+          },
+          {
+            "label": "person",
+            "confidence": 0.42482128739356995
+          },
+          {
+            "label": "person",
+            "confidence": 0.3683891296386719
+          },
+          {
+            "label": "person",
+            "confidence": 0.34843721985816956
+          },
+          {
+            "label": "person",
+            "confidence": 0.2963067591190338
+          },
+          {
+            "label": "chair",
+            "confidence": 0.2953754663467407
+          },
+          {
+            "label": "chair",
+            "confidence": 0.2875288128852844
+          },
+          {
+            "label": "person",
+            "confidence": 0.2721938490867615
+          },
+          {
+            "label": "person",
+            "confidence": 0.25603562593460083
+          },
+          {
+            "label": "tie",
+            "confidence": 0.25599560141563416
+          }
+        ],
+        "blip_caption": "a video frame of a man and woman sitting on chairs in front of a crowd",
+        "metrics": {
+          "yolo_time": 0.28711438179016113,
+          "blip_time": 3.3252596855163574,
+          "yolo_cpu": 37.3,
+          "yolo_ram": 1218.87890625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 95.7,
+          "blip_ram": 1218.5390625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9176515340805054
+          },
+          {
+            "label": "person",
+            "confidence": 0.9175392389297485
+          },
+          {
+            "label": "person",
+            "confidence": 0.9026652574539185
+          },
+          {
+            "label": "person",
+            "confidence": 0.8753413558006287
+          },
+          {
+            "label": "tie",
+            "confidence": 0.8411282896995544
+          },
+          {
+            "label": "chair",
+            "confidence": 0.6097354888916016
+          },
+          {
+            "label": "person",
+            "confidence": 0.5677374601364136
+          },
+          {
+            "label": "person",
+            "confidence": 0.564441442489624
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5595033168792725
+          },
+          {
+            "label": "person",
+            "confidence": 0.5510505437850952
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5030850172042847
+          },
+          {
+            "label": "person",
+            "confidence": 0.461494117975235
+          },
+          {
+            "label": "laptop",
+            "confidence": 0.42811399698257446
+          },
+          {
+            "label": "person",
+            "confidence": 0.3836640417575836
+          },
+          {
+            "label": "person",
+            "confidence": 0.3683159351348877
+          },
+          {
+            "label": "person",
+            "confidence": 0.3435579836368561
+          },
+          {
+            "label": "chair",
+            "confidence": 0.2875756025314331
+          },
+          {
+            "label": "person",
+            "confidence": 0.2813994288444519
+          },
+          {
+            "label": "person",
+            "confidence": 0.2549014389514923
+          }
+        ],
+        "blip_caption": "a video frame of the queen ' s speech at the queen elizabeth ' s coronation coronation coronation coronation coronation coronation coronation coronation coronation coronation coronation coronation coronation",
+        "metrics": {
+          "yolo_time": 0.22225713729858398,
+          "blip_time": 4.802298307418823,
+          "yolo_cpu": 93.9,
+          "yolo_ram": 1213.1796875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 95.7,
+          "blip_ram": 1227.37109375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9212412238121033
+          },
+          {
+            "label": "person",
+            "confidence": 0.9120019674301147
+          },
+          {
+            "label": "person",
+            "confidence": 0.8981213569641113
+          },
+          {
+            "label": "person",
+            "confidence": 0.8783518671989441
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5970160365104675
+          },
+          {
+            "label": "person",
+            "confidence": 0.549389123916626
+          },
+          {
+            "label": "person",
+            "confidence": 0.5469778776168823
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5349569320678711
+          },
+          {
+            "label": "chair",
+            "confidence": 0.5091875791549683
+          },
+          {
+            "label": "person",
+            "confidence": 0.5020611882209778
+          },
+          {
+            "label": "laptop",
+            "confidence": 0.49939462542533875
+          },
+          {
+            "label": "person",
+            "confidence": 0.42315202951431274
+          },
+          {
+            "label": "tie",
+            "confidence": 0.4016023874282837
+          },
+          {
+            "label": "person",
+            "confidence": 0.39537379145622253
+          },
+          {
+            "label": "person",
+            "confidence": 0.3787074685096741
+          },
+          {
+            "label": "person",
+            "confidence": 0.37495261430740356
+          },
+          {
+            "label": "person",
+            "confidence": 0.3038581907749176
+          },
+          {
+            "label": "chair",
+            "confidence": 0.288270503282547
+          },
+          {
+            "label": "chair",
+            "confidence": 0.27486300468444824
+          },
+          {
+            "label": "person",
+            "confidence": 0.26880943775177
+          },
+          {
+            "label": "person",
+            "confidence": 0.26595109701156616
+          }
+        ],
+        "blip_caption": "a video frame of a group of people sitting in chairs",
+        "metrics": {
+          "yolo_time": 0.21478629112243652,
+          "blip_time": 2.920907497406006,
+          "yolo_cpu": 94.6,
+          "yolo_ram": 1237.046875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 96.4,
+          "blip_ram": 1225.84375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A formal event is underway, featuring a man and woman seated on chairs at the front, facing a large crowd of other people who are also seated. Laptops are visible, suggesting a presentation or speech is taking place.",
+      "time": 5.27811598777771
+    }
+  },
+  {
+    "scene_index": 19,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9546104669570923
+          },
+          {
+            "label": "person",
+            "confidence": 0.9405170679092407
+          },
+          {
+            "label": "tie",
+            "confidence": 0.6459745168685913
+          },
+          {
+            "label": "tie",
+            "confidence": 0.47408542037010193
+          },
+          {
+            "label": "laptop",
+            "confidence": 0.25873440504074097
+          }
+        ],
+        "blip_caption": "a video frame of a man in a suit and tie sitting next to a man in a suit",
+        "metrics": {
+          "yolo_time": 0.2840712070465088,
+          "blip_time": 4.8177080154418945,
+          "yolo_cpu": 17.9,
+          "yolo_ram": 1224.65234375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 100.0,
+          "blip_ram": 1219.859375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9550905227661133
+          },
+          {
+            "label": "person",
+            "confidence": 0.9448476433753967
+          },
+          {
+            "label": "tie",
+            "confidence": 0.8037076592445374
+          },
+          {
+            "label": "chair",
+            "confidence": 0.37242263555526733
+          },
+          {
+            "label": "tie",
+            "confidence": 0.31800249218940735
+          },
+          {
+            "label": "chair",
+            "confidence": 0.296457439661026
+          }
+        ],
+        "blip_caption": "a video frame of two men sitting in chairs, one is talking to the other man",
+        "metrics": {
+          "yolo_time": 0.28638362884521484,
+          "blip_time": 4.074716567993164,
+          "yolo_cpu": 100.0,
+          "yolo_ram": 1226.734375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 98.9,
+          "blip_ram": 1228.6875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.9544803500175476
+          },
+          {
+            "label": "person",
+            "confidence": 0.9403611421585083
+          },
+          {
+            "label": "tie",
+            "confidence": 0.8624677658081055
+          },
+          {
+            "label": "chair",
+            "confidence": 0.3776283860206604
+          }
+        ],
+        "blip_caption": "a video frame of the prime of india and prime of india in conversation with prime of india",
+        "metrics": {
+          "yolo_time": 0.21412920951843262,
+          "blip_time": 5.055814266204834,
+          "yolo_cpu": 94.7,
+          "yolo_ram": 1232.8359375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 100.0,
+          "blip_ram": 1223.44140625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "Two men, dressed in suits and ties, are seated next to each other in chairs. The segment primarily shows them engaged in conversation, with one man actively talking to the other. A laptop is briefly detected in the initial frame.",
+      "time": 6.969779014587402
+    }
+  },
+  {
+    "scene_index": 20,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.5297912359237671
+          },
+          {
+            "label": "person",
+            "confidence": 0.4523650109767914
+          },
+          {
+            "label": "person",
+            "confidence": 0.43374553322792053
+          },
+          {
+            "label": "person",
+            "confidence": 0.3674444258213043
+          },
+          {
+            "label": "person",
+            "confidence": 0.28582078218460083
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people",
+        "metrics": {
+          "yolo_time": 0.2716374397277832,
+          "blip_time": 1.9799983501434326,
+          "yolo_cpu": 44.7,
+          "yolo_ram": 1224.51171875,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 97.9,
+          "blip_ram": 1238.4140625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "clock",
+            "confidence": 0.5155379772186279
+          },
+          {
+            "label": "person",
+            "confidence": 0.34291017055511475
+          },
+          {
+            "label": "person",
+            "confidence": 0.34101590514183044
+          },
+          {
+            "label": "person",
+            "confidence": 0.33007752895355225
+          },
+          {
+            "label": "person",
+            "confidence": 0.3002198338508606
+          },
+          {
+            "label": "person",
+            "confidence": 0.2806709110736847
+          },
+          {
+            "label": "person",
+            "confidence": 0.2676090598106384
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people in a large room",
+        "metrics": {
+          "yolo_time": 0.2190077304840088,
+          "blip_time": 2.111994504928589,
+          "yolo_cpu": 99.1,
+          "yolo_ram": 1242.84765625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 97.9,
+          "blip_ram": 1240.515625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.49822261929512024
+          },
+          {
+            "label": "clock",
+            "confidence": 0.47129225730895996
+          },
+          {
+            "label": "person",
+            "confidence": 0.3197536766529083
+          },
+          {
+            "label": "person",
+            "confidence": 0.3020629584789276
+          },
+          {
+            "label": "person",
+            "confidence": 0.2948709726333618
+          },
+          {
+            "label": "person",
+            "confidence": 0.2943134605884552
+          },
+          {
+            "label": "tv",
+            "confidence": 0.25423040986061096
+          },
+          {
+            "label": "person",
+            "confidence": 0.25339242815971375
+          }
+        ],
+        "blip_caption": "a video frame of a crowd of people in a large room",
+        "metrics": {
+          "yolo_time": 0.22099757194519043,
+          "blip_time": 2.0600016117095947,
+          "yolo_cpu": 98.3,
+          "yolo_ram": 1244.84375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 96.4,
+          "blip_ram": 1242.90234375,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "A crowd of people is observed in a large room, with a clock visible, and a TV subsequently coming into view.",
+      "time": 6.913559198379517
+    }
+  },
+  {
+    "scene_index": 21,
+    "frames": [
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.6121801733970642
+          },
+          {
+            "label": "person",
+            "confidence": 0.48983657360076904
+          },
+          {
+            "label": "person",
+            "confidence": 0.48670849204063416
+          },
+          {
+            "label": "person",
+            "confidence": 0.38522177934646606
+          }
+        ],
+        "blip_caption": "a video frame of a woman in a red dress",
+        "metrics": {
+          "yolo_time": 0.23797988891601562,
+          "blip_time": 2.198998212814331,
+          "yolo_cpu": 11.8,
+          "yolo_ram": 1241.984375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 95.8,
+          "blip_ram": 1248.140625,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [
+          {
+            "label": "person",
+            "confidence": 0.8931426405906677
+          }
+        ],
+        "blip_caption": "a video frame of a woman wearing a pink shawr",
+        "metrics": {
+          "yolo_time": 0.18900203704833984,
+          "blip_time": 1.9680001735687256,
+          "yolo_cpu": 95.9,
+          "yolo_ram": 1248.984375,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 94.9,
+          "blip_ram": 1249.48828125,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      },
+      {
+        "yolo_detections": [],
+        "blip_caption": "a video frame of a black background with a white border",
+        "metrics": {
+          "yolo_time": 0.16199898719787598,
+          "blip_time": 1.8828880786895752,
+          "yolo_cpu": 95.0,
+          "yolo_ram": 1253.4765625,
+          "yolo_gpu": 0,
+          "yolo_vram": 0,
+          "blip_cpu": 94.7,
+          "blip_ram": 1251.51171875,
+          "blip_gpu": 0,
+          "blip_vram": 0
+        }
+      }
+    ],
+    "metrics": {},
+    "segment_caption": {
+      "text": "The segment begins with several people present, prominently featuring a woman in a red dress. This transitions to a single woman wearing a pink shawl, before concluding with a black background bordered in white.",
+      "time": 5.4004645347595215
+    }
+  }
+]

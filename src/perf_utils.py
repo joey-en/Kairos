@@ -21,3 +21,14 @@ def measure_performance(func):
 
         return result
     return wrapper
+
+def get_gpu_stats():
+    try:
+        import torch
+        if torch.cuda.is_available():
+            util = torch.cuda.utilization() if hasattr(torch.cuda, "utilization") else 0
+            mem = torch.cuda.memory_allocated() / 1024 / 1024
+            return util, mem
+    except Exception:
+        pass
+    return 0, 0
