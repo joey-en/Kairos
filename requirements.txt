@@ -10,6 +10,7 @@ numpy>=1.26,<2
 # General Video Processing
 opencv-python>=4.7 #OpenCV for video processing
 scenedetect>=0.6 # PySceneDetect
+imageio_ffmpeg==0.6.0 # Saving cut clips
 
 # Light Captioning - BLIP 
 torch == 2.9.1 
