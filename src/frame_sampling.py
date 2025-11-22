@@ -3,13 +3,28 @@ from typing import List, Dict, Optional
 import cv2
 import numpy as np  
 
-# 
+def resize_frame(frame, new_size=320):
+    """
+    Resize so the longest side = new_size, preserving aspect ratio.
+    Works for vertical, horizontal, or square frames.
+    """
+    h, w = frame.shape[:2]
+    longest = max(w, h)
+
+    scale = new_size / longest
+    new_w = int(w * scale)
+    new_h = int(h * scale)
+
+    resized = cv2.resize(frame, (new_w, new_h), interpolation=cv2.INTER_AREA)
+    return resized
+
 def sample_from_clip(
     input_video_path: str,
     scene_index: int,
     start_seconds: float,
     end_seconds: float,
     num_frames: int = 5,
+    new_size: int = 320,
 ) -> List[np.ndarray]:
     """
     Sample `num_frames` frames from a single scene interval.
@@ -74,7 +89,8 @@ def sample_from_clip(
         if not ret or frame is None:
             # Skip unreadable frames, but keep going
             continue
-        frames.append(frame)
+        frame_resized = resize_frame(frame, new_size)
+        frames.append(frame_resized)
 
     cap.release()
     return frames
@@ -83,6 +99,7 @@ def sample_frames(
     input_video_path: str,
     scenes: List[Dict],
     num_frames: int = 4,
+    new_size: int = 320,
     output_dir: Optional[str] = None,
 ) -> List[Dict]:
     """
@@ -130,6 +147,7 @@ def sample_frames(
             start_seconds=start_seconds,
             end_seconds=end_seconds,
             num_frames=num_frames,
+            new_size=new_size,
         )
 
         frame_paths: Optional[List[str]] = None
