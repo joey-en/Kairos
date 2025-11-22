@@ -2,7 +2,7 @@ from src.debug_utils import *
 from src.log_utils import *
 
 test_video = r"Videos\SpongeBob SquarePants - Writing Essay - Some of These - Meme Source.mp4"
-OUTPUT_DIR = "yolo"
+OUTPUT_DIR = "full"
 log = initiate_log(video_path=test_video, run_description="Test run for video processing pipeline.")
 step = {}
 
@@ -35,14 +35,32 @@ detected_obj_scenes, step['detect_object_yolo'] = detect_object_yolo_log(
     output_dir=f"./{OUTPUT_DIR}/yolo",
 )
 
+sound_audio, ast_timings = extract_sounds_log(
+        test_video,
+        scenes=detected_obj_scenes,
+        debug=True
+)
+
+speech_audio, ast_timings = extract_speech_log(
+        video_path = test_video, 
+        scenes = sound_audio, 
+        model="small",
+        use_vad=True, 
+        target_sr=16000,
+        debug = True
+    )
+
 described_scenes, step['describe_scenes'] = describe_scenes_log(
-    scenes= detected_obj_scenes,
+    scenes= speech_audio,
     YOLO_key="yolo_detections",
     FLIP_key="frame_captions",
+    ASR_key= "audio_natural",
+    AST_key= "audio_speech",
     debug= True,
     prompt_path= "prompts/flash_scene_prompt_manahil.txt",
     model= "gemini-2.5-flash",
 )
+
 save_safe_df = save_vid_df(described_scenes, f"{OUTPUT_DIR}/captioned_scenes.json")
 log = complete_log(log, step, vid_len=scenes[-1]["end_seconds"], scene_num=len(scenes), vid_df= save_safe_df)
-save_log(log, filename="blip_yolo_llm_sponge")
+save_log(log, filename="audio_sponge")

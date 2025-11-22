@@ -37,6 +37,8 @@ def describe_scenes(
     scenes: list,
     YOLO_key="yolo_detections",
     FLIP_key="frame_captions",
+    ASR_key: str = "audio_natural",
+    AST_key: str = "audio_speech",
     model= "gemini-2.5-flash",
     prompt_path = "prompts/flash_scene_prompt_manahil.txt",
     debug= False,
@@ -53,7 +55,9 @@ def describe_scenes(
     formatted_scenes = raw_descriptions(
         scenes,
         YOLO_key=YOLO_key,
-        FLIP_key=FLIP_key
+        FLIP_key=FLIP_key,
+        ASR_key=ASR_key,
+        AST_key=AST_key,
     )
 
     updated = []
@@ -147,7 +151,9 @@ def format_single_description(
 def raw_descriptions(
     scenes: list,
     YOLO_key: str = "yolo_detections",
-    FLIP_key: str = "frame_captions"
+    FLIP_key: str = "frame_captions",
+    ASR_key: str = "audio_natural",
+    AST_key: str = "audio_speech",
 ) -> list:
     """
     Outer formatter:
@@ -161,11 +167,16 @@ def raw_descriptions(
     for scene in scenes:
         captions = scene.get(FLIP_key, []) if FLIP_key else []
         yolo = scene.get(YOLO_key, {}) if YOLO_key else {}
+        asr = scene.get(ASR_key, "") if ASR_key else ""
+        ast = scene.get(AST_key, "") if AST_key else ""
 
         single_scene_text = format_single_description(
             captions=captions,
             yolo=yolo,
         )
+
+        if asr: single_scene_text += f"\nAudio transcript {asr}\n"
+        if ast: single_scene_text += f"\nAudio sounds {ast}\n"
 
         formatted_list.append(single_scene_text)
 
@@ -174,7 +185,9 @@ def raw_descriptions(
 def test(
     json_path="./captioned_scenes.json",
     YOLO_key="yolo_detections",
-    FLIP_key="frame_captions"
+    FLIP_key="frame_captions",
+    ASR_key: str = "audio_natural",
+    AST_key: str = "audio_speech",
 ):
     """
     Quick test function for raw_descriptions().
@@ -189,7 +202,9 @@ def test(
     formatted_scenes = raw_descriptions(
         scenes,
         YOLO_key=YOLO_key,
-        FLIP_key=FLIP_key
+        FLIP_key=FLIP_key,
+        ASR_key=ASR_key,
+        AST_key=AST_key,
     )
 
     # Print preview

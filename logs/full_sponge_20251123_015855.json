@@ -1,0 +1,450 @@
+{
+  "run_description": "Test run for video processing pipeline.",
+  "video_path": "Videos\\SpongeBob SquarePants - Writing Essay - Some of These - Meme Source.mp4",
+  "video_length": 29.029,
+  "total_process_sec": 128.45809769630432,
+  "scene_number": 5,
+  "start_process": "2025-11-23 01:56:47",
+  "end_process": "2025-11-23 01:58:55",
+  "computer": {
+    "os_info": {
+      "os": "Windows 11",
+      "os_version": "10.0.26200",
+      "machine_type": "AMD64",
+      "hostname": "the-Kewl-Laptop",
+      "python_version": "3.12.1"
+    },
+    "cpu_info": {
+      "cpu_model": "Intel64 Family 6 Model 165 Stepping 2, GenuineIntel",
+      "cpu_physical_cores": 8,
+      "cpu_logical_cores": 16,
+      "cpu_frequency_MHz": {
+        "current": 2208.0,
+        "min": 0.0,
+        "max": 2208.0
+      }
+    },
+    "ram_info": {
+      "total_RAM_GB": 15.84,
+      "available_RAM_GB": 3.55,
+      "used_RAM_GB": 12.29,
+      "RAM_usage_percent": 77.6
+    },
+    "disk_info": {
+      "disk_total_GB": 932.98,
+      "disk_used_GB": 462.65,
+      "disk_free_GB": 470.33,
+      "disk_usage_percent": 49.6
+    },
+    "gpu_info": {
+      "gpu_model": "NVIDIA GeForce GTX 1660 Ti",
+      "gpu_memory_total_MB": 6144,
+      "gpu_memory_used_MB": 0,
+      "gpu_driver_version": "572.16"
+    }
+  },
+  "steps": {
+    "get_scene_list": {
+      "wall_time_sec": 0.81472,
+      "cpu_time_sec": 2.98438,
+      "ram_before_MB": 484,
+      "ram_after_MB": 498,
+      "ram_used_MB": 14,
+      "io_read_MB": 32.879167556762695,
+      "io_write_MB": 0.0,
+      "gpu_before": [],
+      "gpu_after": [],
+      "cuda_before_MB": null,
+      "cuda_after_MB": null,
+      "cuda_peak_MB": null
+    },
+    "save_clips": {
+      "wall_time_sec": 0.19169,
+      "cpu_time_sec": 0.01562,
+      "ram_before_MB": 498,
+      "ram_after_MB": 498,
+      "ram_used_MB": 0,
+      "io_read_MB": 0.016435623168945312,
+      "io_write_MB": 0.0,
+      "gpu_before": [],
+      "gpu_after": [],
+      "cuda_before_MB": null,
+      "cuda_after_MB": null,
+      "cuda_peak_MB": null
+    },
+    "sample_frames": {
+      "wall_time_sec": 0.76352,
+      "cpu_time_sec": 4.04688,
+      "ram_before_MB": 498,
+      "ram_after_MB": 499,
+      "ram_used_MB": 1,
+      "io_read_MB": 40.88918876647949,
+      "io_write_MB": 0.29976558685302734,
+      "gpu_before": [],
+      "gpu_after": [],
+      "cuda_before_MB": null,
+      "cuda_after_MB": null,
+      "cuda_peak_MB": null
+    },
+    "caption_frames": {
+      "wall_time_sec": 39.66962,
+      "cpu_time_sec": 39.42188,
+      "ram_before_MB": 499,
+      "ram_after_MB": 1536,
+      "ram_used_MB": 1037,
+      "io_read_MB": 0.03395271301269531,
+      "io_write_MB": 0.0,
+      "gpu_before": [],
+      "gpu_after": [],
+      "cuda_before_MB": null,
+      "cuda_after_MB": null,
+      "cuda_peak_MB": null
+    },
+    "detect_object_yolo": {
+      "wall_time_sec": 1.39147,
+      "cpu_time_sec": 10.6875,
+      "ram_before_MB": 1536,
+      "ram_after_MB": 1568,
+      "ram_used_MB": 32,
+      "io_read_MB": 22.059558868408203,
+      "io_write_MB": 0.3170137405395508,
+      "gpu_before": [],
+      "gpu_after": [],
+      "cuda_before_MB": null,
+      "cuda_after_MB": null,
+      "cuda_peak_MB": null
+    },
+    "describe_scenes": {
+      "wall_time_sec": 28.50045,
+      "cpu_time_sec": 1.54688,
+      "ram_before_MB": 2061,
+      "ram_after_MB": 2063,
+      "ram_used_MB": 2,
+      "io_read_MB": 1.213383674621582,
+      "io_write_MB": 0.0,
+      "gpu_before": [],
+      "gpu_after": [],
+      "cuda_before_MB": null,
+      "cuda_after_MB": null,
+      "cuda_peak_MB": null
+    }
+  },
+  "scenes": [
+    {
+      "scene_index": 0,
+      "start_timecode": "00:00:00.000",
+      "end_timecode": "00:00:06.273",
+      "start_seconds": 0.0,
+      "end_seconds": 6.2729333333333335,
+      "duration_seconds": 6.2729333333333335,
+      "clip_path": "natural\\clips\\scene_0000.mp4",
+      "frame_paths": [
+        "./natural/frames\\scene_000\\frame_00.jpg",
+        "./natural/frames\\scene_000\\frame_01.jpg",
+        "./natural/frames\\scene_000\\frame_02.jpg"
+      ],
+      "frame_captions": [
+        "a video frame of a room with a blue door and a pink flower on the floor",
+        "a video frame of a sponge sponge and his friend",
+        "a video frame of a sponge sponge and his friend"
+      ],
+      "yolo_detections": {
+        "0": [
+          {
+            "label": "apple",
+            "confidence": 0.6396965384483337,
+            "bbox": [
+              40.17076873779297,
+              133.12637329101562,
+              89.24431610107422,
+              175.932373046875
+            ]
+          },
+          {
+            "label": "umbrella",
+            "confidence": 0.5266187191009521,
+            "bbox": [
+              39.91291809082031,
+              66.98419189453125,
+              92.776611328125,
+              116.78657531738281
+            ]
+          }
+        ],
+        "1": [
+          {
+            "label": "apple",
+            "confidence": 0.7369955778121948,
+            "bbox": [
+              40.15202331542969,
+              133.08062744140625,
+              89.29620361328125,
+              175.817626953125
+            ]
+          },
+          {
+            "label": "umbrella",
+            "confidence": 0.56544029712677,
+            "bbox": [
+              39.988380432128906,
+              66.8647689819336,
+              93.36991119384766,
+              117.07369232177734
+            ]
+          }
+        ],
+        "2": [
+          {
+            "label": "apple",
+            "confidence": 0.6990700364112854,
+            "bbox": [
+              40.15554428100586,
+              133.03875732421875,
+              89.16592407226562,
+              175.81341552734375
+            ]
+          },
+          {
+            "label": "handbag",
+            "confidence": 0.507034182548523,
+            "bbox": [
+              160.720458984375,
+              50.80241394042969,
+              243.8250732421875,
+              136.16250610351562
+            ]
+          }
+        ]
+      },
+      "audio_natural": "speech (conf=0.53)",
+      "audio_speech": " Okay, Mr. F say, I say, prepare W written!",
+      "llm_scene_description": "The scene is set in a room with a blue door and a pink flower on the floor. An apple remains consistently present and stationary throughout the segment. Initially, an umbrella is visible; however, by the third frame, it is replaced by a handbag, which appears at a new location. Concurrently, speech is heard saying, \"Okay, Mr. F say, I say, prepare W written!\""
+    },
+    {
+      "scene_index": 1,
+      "start_timecode": "00:00:06.273",
+      "end_timecode": "00:00:08.275",
+      "start_seconds": 6.2729333333333335,
+      "end_seconds": 8.274933333333333,
+      "duration_seconds": 2.002,
+      "clip_path": "natural\\clips\\scene_0001.mp4",
+      "frame_paths": [
+        "./natural/frames\\scene_001\\frame_00.jpg",
+        "./natural/frames\\scene_001\\frame_01.jpg",
+        "./natural/frames\\scene_001\\frame_02.jpg"
+      ],
+      "frame_captions": [
+        "a video frame of blue and green stripes",
+        "a video frame of a cartoon character holding a sword",
+        "a video frame of a cartoon character holding a sword"
+      ],
+      "yolo_detections": {
+        "0": [],
+        "1": [
+          {
+            "label": "scissors",
+            "confidence": 0.9229869842529297,
+            "bbox": [
+              138.775146484375,
+              1.7063751220703125,
+              279.80792236328125,
+              128.4936981201172
+            ]
+          }
+        ],
+        "2": []
+      },
+      "audio_natural": "music (conf=0.48)",
+      "audio_speech": "",
+      "llm_scene_description": "The segment begins with blue and green stripes, followed by the appearance of a cartoon character. The character is shown holding an object, which is detected as scissors, although the scene is captioned as the character holding a sword. The character remains visible with this object throughout the remainder of the segment, accompanied by music."
+    },
+    {
+      "scene_index": 2,
+      "start_timecode": "00:00:08.275",
+      "end_timecode": "00:00:21.088",
+      "start_seconds": 8.274933333333333,
+      "end_seconds": 21.087733333333333,
+      "duration_seconds": 12.8128,
+      "clip_path": "natural\\clips\\scene_0002.mp4",
+      "frame_paths": [
+        "./natural/frames\\scene_002\\frame_00.jpg",
+        "./natural/frames\\scene_002\\frame_01.jpg",
+        "./natural/frames\\scene_002\\frame_02.jpg"
+      ],
+      "frame_captions": [
+        "a video frame of a white piece of paper",
+        "a video frame of sponge spongenan ' s adventure",
+        "a video frame of a sponge sponge and his friends"
+      ],
+      "yolo_detections": {
+        "0": [],
+        "1": [
+          {
+            "label": "chair",
+            "confidence": 0.6855201721191406,
+            "bbox": [
+              151.64730834960938,
+              75.28569793701172,
+              242.72012329101562,
+              178.455810546875
+            ]
+          }
+        ],
+        "2": []
+      },
+      "audio_natural": "speech (conf=0.32), music (conf=0.46)",
+      "audio_speech": " I'm doing it! I'm doing it! Yeah! Yeah! In some of these, in some of them, they're in! Done.",
+      "llm_scene_description": "The segment begins with a shot of a white piece of paper. It then transitions to animated content depicting a sponge character and friends on an adventure, with a chair briefly visible in one frame. Throughout this, an excited voice exclaims, \"I'm doing it! I'm doing it! Yeah! Yeah! In some of these, in some of them, they're in! Done,\" accompanied by music."
+    },
+    {
+      "scene_index": 3,
+      "start_timecode": "00:00:21.088",
+      "end_timecode": "00:00:26.293",
+      "start_seconds": 21.087733333333333,
+      "end_seconds": 26.292933333333334,
+      "duration_seconds": 5.205200000000001,
+      "clip_path": "natural\\clips\\scene_0003.mp4",
+      "frame_paths": [
+        "./natural/frames\\scene_003\\frame_00.jpg",
+        "./natural/frames\\scene_003\\frame_01.jpg",
+        "./natural/frames\\scene_003\\frame_02.jpg"
+      ],
+      "frame_captions": [
+        "a video frame of a sponge sponge and his friend",
+        "a video frame of a sponge sponge and his friend",
+        "a video frame of a cartoon character holding a piece of paper"
+      ],
+      "yolo_detections": {
+        "0": [
+          {
+            "label": "apple",
+            "confidence": 0.6668814420700073,
+            "bbox": [
+              40.166683197021484,
+              133.04415893554688,
+              89.21588134765625,
+              175.93344116210938
+            ]
+          }
+        ],
+        "1": [
+          {
+            "label": "suitcase",
+            "confidence": 0.8476368188858032,
+            "bbox": [
+              141.90060424804688,
+              0.4412689208984375,
+              210.44564819335938,
+              128.28707885742188
+            ]
+          },
+          {
+            "label": "apple",
+            "confidence": 0.7373591661453247,
+            "bbox": [
+              40.12297439575195,
+              132.963623046875,
+              89.17057800292969,
+              175.8909912109375
+            ]
+          }
+        ],
+        "2": [
+          {
+            "label": "apple",
+            "confidence": 0.7203450798988342,
+            "bbox": [
+              40.143314361572266,
+              133.04757690429688,
+              89.08163452148438,
+              175.64059448242188
+            ]
+          }
+        ]
+      },
+      "audio_natural": "music (conf=0.70)",
+      "audio_speech": " Now let's see how it looks so far. The...",
+      "llm_scene_description": "Throughout the segment, an apple remains consistently visible in the lower-left of the frame. A suitcase briefly appears in the upper-right section during the middle of the segment. The scene features cartoon characters, with one specifically described as holding a piece of paper by the final frame. Background music accompanies a voice stating, \"Now let's see how it looks so far. The...\""
+    },
+    {
+      "scene_index": 4,
+      "start_timecode": "00:00:26.293",
+      "end_timecode": "00:00:29.029",
+      "start_seconds": 26.292933333333334,
+      "end_seconds": 29.029,
+      "duration_seconds": 2.736066666666666,
+      "clip_path": "natural\\clips\\scene_0004.mp4",
+      "frame_paths": [
+        "./natural/frames\\scene_004\\frame_00.jpg",
+        "./natural/frames\\scene_004\\frame_01.jpg",
+        "./natural/frames\\scene_004\\frame_02.jpg"
+      ],
+      "frame_captions": [
+        "a video frame of a person holding a piece of paper",
+        "a video frame of a person holding a piece of paper",
+        "a video frame of a sponge sponge and his friend"
+      ],
+      "yolo_detections": {
+        "0": [
+          {
+            "label": "banana",
+            "confidence": 0.6705255508422852,
+            "bbox": [
+              70.88699340820312,
+              115.3954849243164,
+              113.42626953125,
+              179.19711303710938
+            ]
+          }
+        ],
+        "1": [
+          {
+            "label": "banana",
+            "confidence": 0.6672564744949341,
+            "bbox": [
+              70.85447692871094,
+              115.42074584960938,
+              113.48228454589844,
+              179.13217163085938
+            ]
+          }
+        ],
+        "2": [
+          {
+            "label": "suitcase",
+            "confidence": 0.8115530014038086,
+            "bbox": [
+              141.9039306640625,
+              0.16046905517578125,
+              210.2479248046875,
+              96.20376586914062
+            ]
+          },
+          {
+            "label": "apple",
+            "confidence": 0.6592329740524292,
+            "bbox": [
+              40.15977096557617,
+              133.1381072998047,
+              88.85359191894531,
+              175.3356170654297
+            ]
+          },
+          {
+            "label": "umbrella",
+            "confidence": 0.5799174904823303,
+            "bbox": [
+              39.930606842041016,
+              67.14553833007812,
+              93.38748168945312,
+              116.97833251953125
+            ]
+          }
+        ]
+      },
+      "audio_natural": "speech (conf=0.44)",
+      "audio_speech": " Time!",
+      "llm_scene_description": "The segment begins with a scene depicting a person holding a piece of paper, with a banana also detected. The scene then shifts to display a suitcase, an apple, and an umbrella. Throughout the segment, the word \"Time!\" is heard."
+    }
+  ]
+}
