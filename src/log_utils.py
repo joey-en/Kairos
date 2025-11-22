@@ -217,8 +217,8 @@ def log_step():
         return wrapper
     return decorator
 
-def complete_log(log, steps, vid_len, scene_num):
-    return {
+def complete_log(log, steps, vid_len, scene_num, vid_df=None):
+    new_log =  {
         "run_description": log["run_description"],
         "video_path": log["video_path"],
         "video_length": vid_len,
@@ -229,6 +229,9 @@ def complete_log(log, steps, vid_len, scene_num):
         "computer": get_system_context(),
         "steps": steps
     }
+    if vid_df is not None:
+        new_log["scenes"] = vid_df
+    return new_log
 
 def save_log(data, folder="logs", filename="log"):
     """

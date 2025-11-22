@@ -64,3 +64,4 @@ def save_vid_df(df, filepath):
     with open(filepath, 'w') as f:
         json.dump(cleaned, f, indent=4)
     print(f"Scenes saved to {filepath}")
+    return cleaned
