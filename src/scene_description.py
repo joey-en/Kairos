@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 from google import genai
 from google.genai import types
-
+import time
 load_dotenv()
 api_key = os.getenv("FLASH2.5")
 
@@ -75,6 +75,7 @@ def describe_scenes(
 
         updated.append(new_scene)
         if debug: print("Scene",idx, summary)
+        time.sleep(5)  # To avoid rate limits
 
 
     return updated
