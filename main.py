@@ -4,7 +4,7 @@ from src.log_utils import *
 test_videos = {
     "sponge_pyscene_blip_yolo_ASR_AST_GeminiPro25": r"Videos\SpongeBob SquarePants - Writing Essay - Some of These - Meme Source.mp4",
     "malala_pyscene_blip_yolo_ASR_AST_GeminiPro25": r"Videos\Watch Malala Yousafzai's Nobel Peace Prize acceptance speech.mp4",
-    "tire_pyscene_blip_yolo_ASR_AST_GeminiPro25": r"Videos\Cartastrophe.mp4",
+    "car_pyscene_blip_yolo_ASR_AST_GeminiPro25": r"Videos\Cartastrophe.mp4",
     "spain_pyscene_blip_yolo_ASR_AST_GeminiPro25": r"Videos\Spain Vlog.mp4",
 }
 OUTPUT_DIR = "spain"

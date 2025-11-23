@@ -1,0 +1,9 @@
+step,wall_time_sec,cpu_time_sec,ram_used_MB,io_read_MB,io_write_MB
+PySceneDetect*,1.242,5.934,0.235,95.733,0.000
+AST sound descriptions*,10.253,80.754,-6.803,95.366,0.000
+ASR speech transcription*,40.745,314.884,177.584,311.819,0.000
+Masked clips saving,0.095,0.001,0.000,0.003,0.000
+Frame sampling,0.142,1.414,1.372,18.501,0.041
+BLIP caption,3.924,31.210,2.395,0.000,0.000
+YOLO detection,0.258,2.062,1.000,0.509,0.046
+BLIP + YOLO + AST + ASR into LLM,5.930,0.056,0.000,0.019,0.000
