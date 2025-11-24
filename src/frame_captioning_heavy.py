@@ -4,9 +4,10 @@ from typing import List, Optional, Dict, Any
 from PIL import Image
 import torch
 from transformers import AutoModel, AutoTokenizer
+from src.gpu_utils import get_device
 
 ckpt_path = "internlm/internlm-xcomposer2-vl-7b"
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = get_device(prefer_discrete=True)
 
 # tokenizer + vision-language model with custom code
 tokenizer = AutoTokenizer.from_pretrained(ckpt_path, trust_remote_code=True)

@@ -1,11 +1,36 @@
 import json
 from dotenv import load_dotenv
 import os
-from google import genai
-from google.genai import types
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Literal, Optional
+
 load_dotenv()
-api_key = os.getenv("FLASH2.5")
+
+# Provider configuration
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini").lower()  # "gemini" or "openai"
+
+# Gemini configuration
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("FLASH2.5")
+
+# Azure OpenAI configuration
+AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
+AZURE_OPENAI_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o-kairos")
+AZURE_OPENAI_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-12-01-preview")
+
+# Initialize providers based on configuration
+if LLM_PROVIDER == "gemini":
+    from google import genai
+    from google.genai import types
+    if not GEMINI_API_KEY:
+        raise RuntimeError("GEMINI_API_KEY or FLASH2.5 not found in environment variables.")
+elif LLM_PROVIDER == "openai":
+    from openai import AzureOpenAI
+    if not AZURE_OPENAI_ENDPOINT or not AZURE_OPENAI_API_KEY:
+        raise RuntimeError("AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_API_KEY must be set in .env file.")
+else:
+    raise ValueError(f"LLM_PROVIDER must be 'gemini' or 'openai', got '{LLM_PROVIDER}'")
 
 def describe_flash_scene(
                         scene_text: str,
@@ -15,11 +40,13 @@ def describe_flash_scene(
                          ) -> str:
     """
     Takes ONE raw scene description (string) and returns
-    a concise Gemini-generated summary describing:
+    a concise LLM-generated summary describing:
       - key objects
       - actions
       - spatial relationships
       - temporal relationships
+    
+    Supports both Gemini and Azure OpenAI providers.
     """
 
     # Load template prompt from external file
@@ -29,9 +56,46 @@ def describe_flash_scene(
     # Insert scene text into {{SCENE_TEXT}} placeholder
     prompt = template.replace("{{SCENE_TEXT}}", scene_text)
 
-    chat = client.chats.create(model=model)
-    resp = chat.send_message(prompt)
-    return resp.text.strip()
+    # Use appropriate API based on provider
+    if LLM_PROVIDER == "gemini":
+        chat = client.chats.create(model=model)
+        resp = chat.send_message(prompt)
+        return resp.text.strip()
+    elif LLM_PROVIDER == "openai":
+        try:
+            response = client.chat.completions.create(
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are a helpful assistant that provides concise scene descriptions.",
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    }
+                ],
+                max_tokens=4096,
+                temperature=1.0,
+                top_p=1.0,
+                model=model
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            error_msg = str(e)
+            if "DeploymentNotFound" in error_msg or "404" in error_msg:
+                raise RuntimeError(
+                    f"Azure OpenAI deployment '{model}' not found.\n"
+                    f"Please verify:\n"
+                    f"  1. The deployment name '{model}' exists in your Azure OpenAI resource\n"
+                    f"  2. Your AZURE_OPENAI_DEPLOYMENT in .env matches the actual deployment name\n"
+                    f"  3. Your endpoint '{AZURE_OPENAI_ENDPOINT}' is correct\n"
+                    f"  4. The deployment is in the same region as your endpoint\n"
+                    f"\nTo find your deployment names, check the Azure Portal or run:\n"
+                    f"  python test_azure_openai.py"
+                ) from e
+            raise
+    else:
+        raise ValueError(f"Unsupported provider: {LLM_PROVIDER}")
 
 def describe_scenes(
     scenes: list,
@@ -39,9 +103,11 @@ def describe_scenes(
     FLIP_key="frame_captions",
     ASR_key: str = "audio_natural",
     AST_key: str = "audio_speech",
-    model= "gemini-2.5-flash",
+    model: Optional[str] = None,
     prompt_path = "prompts/flash_scene_prompt_manahil.txt",
     debug= False,
+    max_workers: int = 1,
+    rate_limit_delay: float = 1.0,
 ):
     """
     Takes a list of scene dictionaries.
@@ -49,7 +115,26 @@ def describe_scenes(
 
     Uses the previously built `format_all_scenes()` to generate
     raw scene descriptions.
+    
+    Args:
+        scenes: List of scene dictionaries
+        YOLO_key: Key for YOLO detections
+        FLIP_key: Key for frame captions
+        ASR_key: Key for audio speech-to-text
+        AST_key: Key for audio sound detection
+        model: Model name to use (defaults based on provider)
+        prompt_path: Path to prompt template file
+        debug: Print debug information
+        max_workers: Number of parallel threads for API calls (1=sequential, >1=parallel)
+        rate_limit_delay: Delay in seconds between API calls (per worker)
     """
+    
+    # Set default model based on provider if not specified
+    if model is None:
+        if LLM_PROVIDER == "gemini":
+            model = "gemini-2.5-flash"
+        elif LLM_PROVIDER == "openai":
+            model = AZURE_OPENAI_DEPLOYMENT
 
     # First format all scenes using your existing system
     formatted_scenes = raw_descriptions(
@@ -60,25 +145,119 @@ def describe_scenes(
         AST_key=AST_key,
     )
 
-    updated = []
+    if max_workers == 1:
+        # Sequential execution (original behavior)
+        updated = []
+        
+        # Initialize client based on provider
+        if LLM_PROVIDER == "gemini":
+            client = genai.Client(api_key=GEMINI_API_KEY)
+        elif LLM_PROVIDER == "openai":
+            client = AzureOpenAI(
+                api_version=AZURE_OPENAI_API_VERSION,
+                azure_endpoint=AZURE_OPENAI_ENDPOINT,
+                api_key=AZURE_OPENAI_API_KEY,
+            )
 
-    client = genai.Client(api_key=api_key)
+        for idx, (scene, formatted_text) in enumerate(zip(scenes, formatted_scenes)):
+            summary = describe_flash_scene(formatted_text, 
+                                           client, 
+                                           prompt_path=prompt_path,
+                                           model=model)
 
-    for idx, (scene, formatted_text) in enumerate(zip(scenes, formatted_scenes)):
-        summary = describe_flash_scene(formatted_text, 
-                                       client, 
-                                       prompt_path= prompt_path,
-                                       model= model )
+            new_scene = dict(scene)
+            new_scene["llm_scene_description"] = summary
 
-        new_scene = dict(scene)
-        new_scene["llm_scene_description"] = summary
+            updated.append(new_scene)
+            if debug: print("Scene",idx, summary)
+            time.sleep(rate_limit_delay)  # To avoid rate limits
 
-        updated.append(new_scene)
-        if debug: print("Scene",idx, summary)
-        time.sleep(5)  # To avoid rate limits
+        return updated
+    else:
+        # Parallel execution
+        return _describe_scenes_parallel(
+            scenes=scenes,
+            formatted_scenes=formatted_scenes,
+            prompt_path=prompt_path,
+            model=model,
+            debug=debug,
+            max_workers=max_workers,
+            rate_limit_delay=rate_limit_delay
+        )
 
 
-    return updated
+def _describe_scenes_parallel(
+    scenes: list,
+    formatted_scenes: list,
+    prompt_path: str,
+    model: str,
+    debug: bool,
+    max_workers: int,
+    rate_limit_delay: float,
+):
+    """
+    Internal function for parallel scene description.
+    Each worker processes scenes independently with its own API client.
+    """
+    
+    def process_single_scene(idx, scene, formatted_text):
+        """Process a single scene with its own client instance."""
+        try:
+            # Each worker gets its own client to avoid threading issues
+            if LLM_PROVIDER == "gemini":
+                client = genai.Client(api_key=GEMINI_API_KEY)
+            elif LLM_PROVIDER == "openai":
+                client = AzureOpenAI(
+                    api_version=AZURE_OPENAI_API_VERSION,
+                    azure_endpoint=AZURE_OPENAI_ENDPOINT,
+                    api_key=AZURE_OPENAI_API_KEY,
+                )
+            
+            summary = describe_flash_scene(
+                formatted_text, 
+                client, 
+                prompt_path=prompt_path,
+                model=model
+            )
+            
+            new_scene = dict(scene)
+            new_scene["llm_scene_description"] = summary
+            
+            if debug:
+                print(f"✓ Scene {idx} completed")
+            
+            # Rate limiting per worker
+            time.sleep(rate_limit_delay)
+            
+            return (idx, new_scene)
+        except Exception as e:
+            if debug:
+                print(f"✗ Scene {idx} failed: {str(e)}")
+            raise
+    
+    # Submit all tasks to thread pool
+    results = [None] * len(scenes)  # Pre-allocate to maintain order
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all scenes
+        future_to_idx = {}
+        for idx, (scene, formatted_text) in enumerate(zip(scenes, formatted_scenes)):
+            future = executor.submit(process_single_scene, idx, scene, formatted_text)
+            future_to_idx[future] = idx
+        
+        if debug:
+            print(f"\n  ⏳ Processing {len(scenes)} scenes with {max_workers} parallel workers...\n")
+        
+        # Collect results as they complete
+        completed = 0
+        for future in as_completed(future_to_idx):
+            idx, new_scene = future.result()
+            results[idx] = new_scene
+            completed += 1
+            if debug:
+                print(f"  Progress: {completed}/{len(scenes)} scenes completed")
+    
+    return results
 
 # ================================================================================================
 # SCENE DESCRIPTION FORMATTING

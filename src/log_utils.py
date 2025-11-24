@@ -148,6 +148,69 @@ def get_gpu_stats():
     # -------------------------
     return []
 
+
+def detect_device_used():
+    """
+    Detect which device (CPU or GPU) is being used.
+    Returns a dictionary with device information.
+    """
+    device_info = {
+        "device_type": "cpu",
+        "device_name": "CPU",
+        "device_index": None,
+    }
+    
+    # Check if CUDA is available
+    if torch.cuda.is_available():
+        # Check if any CUDA memory is allocated (indicates GPU usage)
+        total_allocated = sum(
+            torch.cuda.memory_allocated(i) 
+            for i in range(torch.cuda.device_count())
+        )
+        
+        if total_allocated > 0:
+            # GPU is being used - find which one has the most memory allocated
+            max_mem = 0
+            device_idx = 0
+            for i in range(torch.cuda.device_count()):
+                mem = torch.cuda.memory_allocated(i)
+                if mem > max_mem:
+                    max_mem = mem
+                    device_idx = i
+            
+            device_info = {
+                "device_type": "cuda",
+                "device_name": torch.cuda.get_device_name(device_idx),
+                "device_index": device_idx,
+            }
+        else:
+            # CUDA available but no memory allocated yet
+            # Check if we can determine from PyTorch's current device
+            # This handles cases where models are loaded but haven't run inference yet
+            try:
+                current_device = torch.cuda.current_device()
+                device_info = {
+                    "device_type": "cuda",
+                    "device_name": torch.cuda.get_device_name(current_device),
+                    "device_index": current_device,
+                }
+            except:
+                # Fallback to CPU - CUDA available but no device context set
+                device_info = {
+                    "device_type": "cpu",
+                    "device_name": "CPU",
+                    "device_index": None,
+                }
+    else:
+        # CUDA not available - definitely using CPU
+        device_info = {
+            "device_type": "cpu",
+            "device_name": "CPU",
+            "device_index": None,
+        }
+    
+    return device_info
+
 def log_step():
     """Decorator that logs CPU, RAM, GPU, IO, runtime and returns (output, log_dict)."""
     def decorator(func):
@@ -161,6 +224,7 @@ def log_step():
             ram_before = process.memory_info().rss // (1024 ** 2)
             io_before = process.io_counters()
             gpu_before = get_gpu_stats()
+            device_before = detect_device_used()
 
             # CUDA memory before
             if torch.cuda.is_available():
@@ -172,6 +236,13 @@ def log_step():
             else:
                 cuda_before = None
 
+            # Print device info before function call
+            func_name = func.__name__.replace("_log", "").replace("_", " ").title()
+            device_str = f"{device_before['device_type'].upper()}"
+            if device_before['device_type'] == 'cuda':
+                device_str += f" ({device_before['device_name']}, GPU {device_before['device_index']})"
+            print(f"\n[{func_name}] Starting... Device: {device_str}")
+
             # --- Run function ---
             t0 = time.time()
             output = func(*args, **kwargs)
@@ -182,6 +253,7 @@ def log_step():
             ram_after = process.memory_info().rss // (1024 ** 2)
             io_after = process.io_counters()
             gpu_after = get_gpu_stats()
+            device_after = detect_device_used()
 
             # CUDA memory after + peak
             if torch.cuda.is_available():
@@ -195,6 +267,34 @@ def log_step():
                 ]
             else:
                 cuda_after = cuda_peak = None
+
+            # Determine primary device used during this step
+            # If CUDA memory increased, GPU was likely used
+            # Otherwise, prefer device_after (current state) but fallback to device_before if needed
+            device_used = device_after
+            if torch.cuda.is_available() and cuda_before is not None and cuda_after is not None:
+                # Check if CUDA memory increased significantly (indicates GPU usage)
+                total_before = sum(cuda_before) if isinstance(cuda_before, list) else 0
+                total_after = sum(cuda_after) if isinstance(cuda_after, list) else 0
+                if total_after > total_before + 10:  # At least 10MB increase indicates GPU usage
+                    device_used = device_after
+                elif device_after["device_type"] == "cpu" and device_before["device_type"] == "cpu":
+                    # Both before and after are CPU - definitely CPU
+                    device_used = device_after
+                elif device_after["device_type"] == "cpu":
+                    # After is CPU but before was GPU - might be CPU-only step
+                    # Use CPU to indicate this step didn't use GPU
+                    device_used = device_after
+            elif device_after["device_type"] == "cpu":
+                # No CUDA available or no memory tracking - use CPU
+                device_used = device_after
+
+            # Print device info after function call
+            device_str = f"{device_used['device_type'].upper()}"
+            if device_used['device_type'] == 'cuda':
+                device_str += f" ({device_used['device_name']}, GPU {device_used['device_index']})"
+            elapsed = round(t1 - t0, 2)
+            print(f"[{func_name}] Completed in {elapsed}s. Device used: {device_str}")
 
             # Build log entry
             log_entry = {
@@ -210,6 +310,7 @@ def log_step():
                 "cuda_before_MB": cuda_before,
                 "cuda_after_MB": cuda_after,
                 "cuda_peak_MB": cuda_peak,
+                "device_used": device_used,
             }
 
             return output, log_entry

@@ -3,7 +3,12 @@ import numpy as np
 import torch
 import librosa
 from transformers import AutoFeatureExtractor, AutoModelForAudioClassification
+from src.gpu_utils import get_device
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 
+# Thread lock for AST GPU operations to prevent memory corruption
+_ast_lock = threading.Lock()
 
 # =========================================================
 # Load Silero VAD
@@ -26,6 +31,9 @@ silero_model, utils = torch.hub.load(
 AST_MODEL_NAME = "MIT/ast-finetuned-audioset-10-10-0.4593"
 AST_FE = AutoFeatureExtractor.from_pretrained(AST_MODEL_NAME)
 AST_MODEL = AutoModelForAudioClassification.from_pretrained(AST_MODEL_NAME)
+# Move AST model to GPU if available
+device = get_device(prefer_discrete=True)
+AST_MODEL = AST_MODEL.to(device)
 
 
 # =========================================================
@@ -69,7 +77,15 @@ def load_audio_av(video_path, target_sr=16000):
 # =========================================================
 # Extract environmental audio (non-speech) from segment
 # =========================================================
-def extract_natural_audio_from_video(y, sr, start_sec, end_sec, threshold=0.3, device="cpu"):
+def extract_natural_audio_from_video(y, sr, start_sec, end_sec, threshold=0.3, device=None):
+
+    # Use the device the model is already on (set at module level)
+    if device is None:
+        device = get_device(prefer_discrete=True)
+    
+    # Ensure device is a torch.device object
+    if not isinstance(device, torch.device):
+        device = torch.device(device)
 
     start = int(start_sec * sr)
     end   = int(end_sec * sr)
@@ -87,12 +103,13 @@ def extract_natural_audio_from_video(y, sr, start_sec, end_sec, threshold=0.3, d
     for seg in speech_segments:
         masked[seg["start"]:seg["end"]] = 0.0
 
-    # --- AST ---
+    # --- AST with thread lock for GPU safety ---
     inputs = AST_FE(masked, sampling_rate=sr, return_tensors="pt", padding=True).to(device)
 
-    with torch.no_grad():
-        outputs = AST_MODEL(**inputs)
-        probs = torch.sigmoid(outputs.logits)[0].cpu().numpy()
+    with _ast_lock:  # Protect GPU operations from concurrent access
+        with torch.no_grad():
+            outputs = AST_MODEL(**inputs)
+            probs = torch.sigmoid(outputs.logits)[0].cpu().numpy()
 
     labels = [
         AST_MODEL.config.id2label[i]
@@ -116,25 +133,105 @@ def extract_natural_audio_from_video(y, sr, start_sec, end_sec, threshold=0.3, d
 # =========================================================
 # Main pipeline: video → scenes → natural audio labels
 # =========================================================
-def extract_sounds(video_path, scenes, target_sr=16000, debug=False):
+def extract_sounds(video_path, scenes, target_sr=16000, debug=False, max_workers: int = 1):
+    """
+    Extract environmental audio (non-speech) from video scenes.
+    
+    Args:
+        video_path: Path to video file
+        scenes: List of scene dictionaries with start_seconds and end_seconds
+        target_sr: Target sample rate
+        debug: Print debug information
+        max_workers: Number of parallel workers for processing scenes (1=sequential, >1=parallel)
+    
+    Returns:
+        Updated scenes with "audio_natural" key added
+    """
+    # Get device for AST model (model is already on device from module load)
+    device = get_device(prefer_discrete=True)
 
-    # 1. fully decode audio using PyAV
+    # 1. fully decode audio using PyAV (do this once)
     y, sr = load_audio_av(video_path, target_sr)
 
-    # 2. loop through scenes
-    for scene in scenes:
-        start = scene["start_seconds"]
-        end   = scene["end_seconds"]
+    if max_workers == 1:
+        # Sequential execution (original behavior)
+        for scene in scenes:
+            start = scene["start_seconds"]
+            end   = scene["end_seconds"]
 
-        label = extract_natural_audio_from_video(y, sr, start, end)
-        scene["audio_natural"] = label
+            label = extract_natural_audio_from_video(y, sr, start, end, device=device)
+            scene["audio_natural"] = label
 
+            if debug:
+                print(f"{start} → {end} : {label}")
+
+        return scenes
+    else:
+        # Parallel execution
+        return _extract_sounds_parallel(
+            scenes=scenes,
+            audio=y,
+            sr=sr,
+            device=device,
+            debug=debug,
+            max_workers=max_workers
+        )
+
+
+def _extract_sounds_parallel(
+    scenes: list,
+    audio: np.ndarray,
+    sr: int,
+    device,
+    debug: bool,
+    max_workers: int,
+):
+    """
+    Internal function for parallel sound extraction.
+    Processes scenes in parallel using the pre-loaded audio.
+    """
+    
+    def process_single_scene(idx, scene):
+        """Process a single scene."""
+        try:
+            start = scene["start_seconds"]
+            end   = scene["end_seconds"]
+
+            label = extract_natural_audio_from_video(audio, sr, start, end, device=device)
+            
+            new_scene = dict(scene)
+            new_scene["audio_natural"] = label
+
+            if debug:
+                print(f"Scene {idx} ({start} → {end}): {label}")
+
+            return (idx, new_scene)
+        except Exception as e:
+            raise Exception(f"Scene {idx} failed: {str(e)}")
+    
+    # Pre-allocate results list to maintain order
+    results = [None] * len(scenes)
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all scenes
+        future_to_idx = {}
+        for idx, scene in enumerate(scenes):
+            future = executor.submit(process_single_scene, idx, scene)
+            future_to_idx[future] = idx
+        
         if debug:
-            print(f"{start} → {end} : {label}")
-
-        # ADD DEBUG TO SAVE THE AUDIO CLIPS IF NEEDED
-
-    return scenes
+            print(f"\n  ⏳ Processing {len(scenes)} scenes with {max_workers} parallel workers...\n")
+        
+        # Collect results as they complete
+        completed = 0
+        for future in as_completed(future_to_idx):
+            idx, new_scene = future.result()
+            results[idx] = new_scene
+            completed += 1
+            if debug:
+                print(f"  Progress: {completed}/{len(scenes)} scenes completed")
+    
+    return results
 
 
 

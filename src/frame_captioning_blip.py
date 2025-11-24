@@ -4,8 +4,11 @@ import numpy as np
 import torch
 from typing import Optional
 from PIL import Image
+from src.gpu_utils import get_device
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = get_device(prefer_discrete=True)
 
 # ======================================================================
 # Load BLIP model and processor
@@ -15,6 +18,9 @@ model = BlipForConditionalGeneration.from_pretrained(
 ).to(device)
 processor = BlipProcessor.from_pretrained(
     "Salesforce/blip-image-captioning-base", use_fast=True)
+
+# Thread lock for GPU operations to prevent memory corruption
+_blip_lock = threading.Lock()
 # ======================================================================
 # # Load BLIP2 model and processor
 # from transformers import Blip2Processor, Blip2ForConditionalGeneration
@@ -94,18 +100,19 @@ def blip_frame(
     # Move tensors to same device as the model
     inputs = {k: v.to(device) for k, v in inputs.items()}
 
-    # --- Generate caption ---
-    with torch.no_grad():
-        output_ids = model.generate(
-            **inputs,
-            max_length=max_length,
-            num_beams=num_beams,
-            do_sample=do_sample,
-            no_repeat_ngram_size=2,
-            repetition_penalty=1.2,
-        )
+    # --- Generate caption with thread lock for GPU safety ---
+    with _blip_lock:  # Protect GPU operations from concurrent access
+        with torch.no_grad():
+            output_ids = model.generate(
+                **inputs,
+                max_length=max_length,
+                num_beams=num_beams,
+                do_sample=do_sample,
+                no_repeat_ngram_size=2,
+                repetition_penalty=1.2,
+            )
 
-    caption = processor.decode(output_ids[0], skip_special_tokens=True)
+        caption = processor.decode(output_ids[0], skip_special_tokens=True)
     return caption.strip()
 
 
@@ -118,6 +125,7 @@ def caption_frames(
     num_beams: int = 3,
     do_sample: bool = False,
     debug: bool = False,
+    max_workers: int = 1,
 ) -> List[Dict]:
     """
     For each scene in `scenes`, run BLIP on each frame and attach captions.
@@ -139,6 +147,10 @@ def caption_frames(
         Beam search width.
     do_sample : bool
         Whether to sample or keep it deterministic.
+    debug : bool
+        Print debug information.
+    max_workers : int
+        Number of parallel workers for processing scenes (1=sequential, >1=parallel).
 
     Returns
     -------
@@ -147,31 +159,123 @@ def caption_frames(
             "frame_captions": List[str]
         aligned 1:1 with the "frames" list.
     """
-    enriched_scenes: List[Dict] = []
+    if max_workers == 1:
+        # Sequential execution (original behavior)
+        enriched_scenes: List[Dict] = []
 
-    for scene in scenes:
-        if debug: print("Scene", scene.get("scene_index", "??"))
-        frames = scene.get("frames", [])
-        captions: List[str] = []
+        for scene in scenes:
+            if debug: print("Scene", scene.get("scene_index", "??"))
+            frames = scene.get("frames", [])
+            captions: List[str] = []
 
-        for frame in frames:
-            caption = blip_frame(
-                image=frame,
-                model=model,
-                processor=processor,
-                prompt=prompt,
-                max_length=max_length,
-                num_beams=num_beams,
-                do_sample=do_sample,
-            )
-            captions.append(caption)
-            if debug: print(f"  {caption}")
+            for frame in frames:
+                caption = blip_frame(
+                    image=frame,
+                    model=model,
+                    processor=processor,
+                    prompt=prompt,
+                    max_length=max_length,
+                    num_beams=num_beams,
+                    do_sample=do_sample,
+                )
+                captions.append(caption)
+                if debug: print(f"  {caption}")
 
-        new_scene = dict(scene)  # shallow copy so we don't mutate original reference
-        new_scene["frame_captions"] = captions
-        enriched_scenes.append(new_scene)
+            new_scene = dict(scene)  # shallow copy so we don't mutate original reference
+            new_scene["frame_captions"] = captions
+            enriched_scenes.append(new_scene)
 
-    return enriched_scenes
+        return enriched_scenes
+    else:
+        # Parallel execution
+        return _caption_frames_parallel(
+            scenes=scenes,
+            model=model,
+            processor=processor,
+            prompt=prompt,
+            max_length=max_length,
+            num_beams=num_beams,
+            do_sample=do_sample,
+            debug=debug,
+            max_workers=max_workers
+        )
+
+
+def _caption_frames_parallel(
+    scenes: List[Dict],
+    model: BlipForConditionalGeneration,
+    processor: BlipProcessor,
+    prompt: Optional[str],
+    max_length: int,
+    num_beams: int,
+    do_sample: bool,
+    debug: bool,
+    max_workers: int,
+) -> List[Dict]:
+    """
+    Internal function for parallel frame captioning.
+    Processes scenes in parallel, with each scene processing its frames sequentially.
+    PyTorch models are thread-safe for inference, so we can share the model across threads.
+    """
+    
+    def process_single_scene(idx, scene):
+        """Process a single scene with all its frames."""
+        try:
+            if debug:
+                print(f"Processing Scene {scene.get('scene_index', idx)}")
+            
+            frames = scene.get("frames", [])
+            captions: List[str] = []
+
+            for frame in frames:
+                caption = blip_frame(
+                    image=frame,
+                    model=model,  # Shared model instance (thread-safe for inference)
+                    processor=processor,  # Shared processor (thread-safe)
+                    prompt=prompt,
+                    max_length=max_length,
+                    num_beams=num_beams,
+                    do_sample=do_sample,
+                )
+                captions.append(caption)
+                if debug:
+                    print(f"  Scene {scene.get('scene_index', idx)}: {caption}")
+
+            new_scene = dict(scene)
+            new_scene["frame_captions"] = captions
+            
+            if debug:
+                print(f"✓ Scene {scene.get('scene_index', idx)} completed")
+            
+            return (idx, new_scene)
+        except Exception as e:
+            if debug:
+                print(f"✗ Scene {scene.get('scene_index', idx)} failed: {str(e)}")
+            raise
+    
+    # Pre-allocate results list to maintain order
+    results = [None] * len(scenes)
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all scenes
+        future_to_idx = {}
+        for idx, scene in enumerate(scenes):
+            future = executor.submit(process_single_scene, idx, scene)
+            future_to_idx[future] = idx
+        
+        if debug:
+            print(f"\n  ⏳ Processing {len(scenes)} scenes with {max_workers} parallel workers...\n")
+        
+        # Collect results as they complete
+        completed = 0
+        for future in as_completed(future_to_idx):
+            idx, new_scene = future.result()
+            results[idx] = new_scene
+            completed += 1
+            if debug:
+                print(f"  Progress: {completed}/{len(scenes)} scenes completed")
+    
+    return results
 
 
 '''

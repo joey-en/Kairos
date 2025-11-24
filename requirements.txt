@@ -15,13 +15,16 @@ scenedetect>=0.6 # PySceneDetect
 imageio_ffmpeg==0.6.0 # Saving cut clips
 
 # Light Captioning - BLIP 
-torch == 2.9.1 
+# NOTE: Install PyTorch with CUDA support separately:
+# pip install torch==2.9.1 torchvision==0.24.1 torchaudio==2.9.1 --index-url https://download.pytorch.org/whl/cu130
+# For CPU-only: torch == 2.9.1
+torch>=2.9.1  # Use CUDA version if GPU available
 transformers==4.57.1
-Pillow== 12.0.0
+Pillow==12.0.0
 
 # Heavy Captioning - InternLM-XComposer2
 sentencepiece==0.2.1
-torchvision==0.24.1
+torchvision>=0.24.1  # Must match torch version
 einops==0.8.1
 
 # Heavy Captioning - Gemini Pro 2.5
@@ -33,8 +36,10 @@ ultralytics==8.3.230
 
 # Audio / ASR / Audio Captioning 
 openai-whisper>=20230314
-torchaudio==2.9.1  # Must match torch 2.9.1 on Windows
+openai>=1.0.0  # Azure OpenAI support
+torchaudio>=2.9.1  # Must match torch version
 torchcodec>=0.0.7
+av>=13.1.0  # PyAV for audio/video processing
 librosa>=0.10.0
 soundfile>=0.12.1
 ffmpeg_downloader>=0.3.0

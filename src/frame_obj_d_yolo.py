@@ -1,6 +1,13 @@
 # src/yolo_inference.py
 from ultralytics import YOLO
 import numpy as np
+import torch
+from src.gpu_utils import get_device
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
+
+# Thread lock for YOLO GPU operations to prevent memory corruption
+_yolo_lock = threading.Lock()
 
 
 def run_yolo_on_frame(
@@ -26,12 +33,22 @@ def run_yolo_on_frame(
                 "bbox": [x1, y1, x2, y2]
             }
     """
-    results = model.predict(
-        frame,
-        conf=conf,
-        iou=iou,
-        verbose=False
-    )
+    # Get device for YOLO inference
+    device = get_device(prefer_discrete=True)
+    if isinstance(device, torch.device) and device.type == "cuda":
+        device_str = device.index if device.index is not None else 0
+    else:
+        device_str = None  # Let YOLO auto-detect
+    
+    # Protect GPU operations with thread lock
+    with _yolo_lock:
+        results = model.predict(
+            frame,
+            conf=conf,
+            iou=iou,
+            verbose=False,
+            device=device_str
+        )
 
     detections = []
 
@@ -60,7 +77,8 @@ def detect_object_yolo(
     model_size: str = "model/yolov8s.pt",
     conf: float = 0.5,
     iou: float = 0.45,
-    output_dir: str = None, 
+    output_dir: str = None,
+    max_workers: int = 1,
 ):
     """
     Run YOLO on a list of scenes.
@@ -71,41 +89,129 @@ def detect_object_yolo(
         model_size: YOLO model name (e.g., yolov8s)
         conf: confidence threshold
         iou: IoU threshold
+        output_dir: Optional directory to save debug images
+        max_workers: Number of parallel workers for processing scenes (1=sequential, >1=parallel)
 
     Returns:
         updated scenes with "yolo_detections" added
     """
 
+    # Get device for YOLO (ultralytics uses device index or "cuda"/"cpu")
+    device = get_device(prefer_discrete=True)
+    if isinstance(device, torch.device):
+        # Extract device index from "cuda:0" -> 0, or use "cuda" for default
+        if device.type == "cuda":
+            device_str = device.index if device.index is not None else "cuda"
+        else:
+            device_str = "cpu"
+    else:
+        device_str = device
+    
     model = YOLO(model_size)
+    # YOLO automatically uses GPU if available, but we can explicitly set it
+    # The device will be used in model.predict() calls
 
-    results_scenes = []
+    if max_workers == 1:
+        # Sequential execution (original behavior)
+        results_scenes = []
 
-    for s, scene in enumerate(scenes):
-        new_scene = dict(scene)
+        for s, scene in enumerate(scenes):
+            new_scene = dict(scene)
 
-        frames = scene.get("frames", [])
-        yolo_dict = {}
+            frames = scene.get("frames", [])
+            yolo_dict = {}
 
-        # process each frame in scene
-        for idx, frame in enumerate(frames):
-            detections = run_yolo_on_frame(
-                model,
-                frame,
-                conf=conf,
-                iou=iou
-            )
-            yolo_dict[idx] = detections
-            if output_dir is not None:
-                debug_draw_yolo(
-                    frame = frame,
-                    detections = detections,
-                    save_path=f"./{output_dir}/scene_{s:03d}/detection_{idx:03d}.jpg",
+            # process each frame in scene
+            for idx, frame in enumerate(frames):
+                detections = run_yolo_on_frame(
+                    model,
+                    frame,
+                    conf=conf,
+                    iou=iou
                 )
+                yolo_dict[idx] = detections
+                if output_dir is not None:
+                    debug_draw_yolo(
+                        frame = frame,
+                        detections = detections,
+                        save_path=f"./{output_dir}/scene_{s:03d}/detection_{idx:03d}.jpg",
+                    )
 
-        new_scene["yolo_detections"] = yolo_dict
-        results_scenes.append(new_scene)
+            new_scene["yolo_detections"] = yolo_dict
+            results_scenes.append(new_scene)
 
-    return results_scenes
+        return results_scenes
+    else:
+        # Parallel execution
+        return _detect_object_yolo_parallel(
+            scenes=scenes,
+            model=model,
+            conf=conf,
+            iou=iou,
+            output_dir=output_dir,
+            max_workers=max_workers
+        )
+
+
+def _detect_object_yolo_parallel(
+    scenes: list,
+    model,
+    conf: float,
+    iou: float,
+    output_dir: str,
+    max_workers: int,
+):
+    """
+    Internal function for parallel YOLO detection.
+    Processes scenes in parallel, with each scene processing its frames sequentially.
+    """
+    
+    def process_single_scene(idx, scene):
+        """Process a single scene with all its frames."""
+        try:
+            new_scene = dict(scene)
+            frames = scene.get("frames", [])
+            yolo_dict = {}
+
+            # process each frame in scene
+            for frame_idx, frame in enumerate(frames):
+                detections = run_yolo_on_frame(
+                    model,  # Shared model instance (thread-safe for inference)
+                    frame,
+                    conf=conf,
+                    iou=iou
+                )
+                yolo_dict[frame_idx] = detections
+                if output_dir is not None:
+                    debug_draw_yolo(
+                        frame=frame,
+                        detections=detections,
+                        save_path=f"./{output_dir}/scene_{idx:03d}/detection_{frame_idx:03d}.jpg",
+                    )
+
+            new_scene["yolo_detections"] = yolo_dict
+            return (idx, new_scene)
+        except Exception as e:
+            raise Exception(f"Scene {idx} failed: {str(e)}")
+    
+    # Pre-allocate results list to maintain order
+    results = [None] * len(scenes)
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all scenes
+        future_to_idx = {}
+        for idx, scene in enumerate(scenes):
+            future = executor.submit(process_single_scene, idx, scene)
+            future_to_idx[future] = idx
+        
+        # Collect results as they complete
+        completed = 0
+        for future in as_completed(future_to_idx):
+            idx, new_scene = future.result()
+            results[idx] = new_scene
+            completed += 1
+    
+    return results
 
 # ================================================================
 # saving images for debugging

@@ -4,6 +4,12 @@ import noisereduce as nr
 import torch
 import av
 import whisper
+from src.gpu_utils import get_device
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
+
+# Thread lock for Whisper GPU operations to prevent memory corruption
+_whisper_lock = threading.Lock()
 
 # Load Silero VAD (once)
 silero_model, utils = torch.hub.load(
@@ -114,9 +120,9 @@ def slice_audio(clean_audio, sr, t0, t1):
     return clean_audio[i0:i1]
 
 # =========================================================
-# batcgh
+# batch
 # =========================================================
-def extract_speech(video_path, scenes, model, use_vad=True, target_sr=16000, debug=False):
+def extract_speech(video_path, scenes, model, use_vad=True, target_sr=16000, debug=False, max_workers: int = 1):
     """
     Batch process timestamped audio chunks from a video.
     - Loads and cleans audio ONCE.
@@ -128,35 +134,114 @@ def extract_speech(video_path, scenes, model, use_vad=True, target_sr=16000, deb
         scenes (list[dict]): List of dicts containing:
             - start_seconds
             - end_seconds
+        model: Whisper model name (e.g., "small")
         use_vad (bool): Whether to apply soft VAD enhancement.
         target_sr (int): Sampling rate.
+        debug (bool): Print debug information.
+        max_workers (int): Number of parallel workers for processing scenes (1=sequential, >1=parallel)
 
     Returns:
         list[dict]: same list, but each entry gains key "audio_speech".
     """
-    model = whisper.load_model(model)
+    # Get device for Whisper
+    device = get_device(prefer_discrete=True)
+    device_str = str(device) if isinstance(device, torch.device) else device
+    whisper_model = whisper.load_model(model, device=device_str)
 
     # 1) Load & clean audio ONCE
     clean_audio, sr = load_and_clean_audio(
         video_path,
         target_sr=target_sr,
         use_vad=use_vad,
-        
     )
 
-    # 2) Process each segment
-    for scene in scenes:
-        t0 = float(scene["start_seconds"])
-        t1 = float(scene["end_seconds"])
+    if max_workers == 1:
+        # Sequential execution (original behavior)
+        for scene in scenes:
+            t0 = float(scene["start_seconds"])
+            t1 = float(scene["end_seconds"])
 
-        audio_clip = slice_audio(clean_audio, sr, t0, t1)
-        speech = model.transcribe(audio_clip, fp16=False)['text']
+            audio_clip = slice_audio(clean_audio, sr, t0, t1)
+            
+            # Protect GPU operations with thread lock (even in sequential mode for safety)
+            with _whisper_lock:
+                speech = whisper_model.transcribe(audio_clip, fp16=False)['text']
 
-        # add new key
-        scene["audio_speech"] = speech
-        if debug: print(f"Scene {t0:.2f}-{t1:.2f}s: {speech}")
+            # add new key
+            scene["audio_speech"] = speech
+            if debug: print(f"Scene {t0:.2f}-{t1:.2f}s: {speech}")
 
-    return scenes
+        return scenes
+    else:
+        # Parallel execution
+        return _extract_speech_parallel(
+            scenes=scenes,
+            clean_audio=clean_audio,
+            sr=sr,
+            whisper_model=whisper_model,
+            debug=debug,
+            max_workers=max_workers
+        )
+
+
+def _extract_speech_parallel(
+    scenes: list,
+    clean_audio: np.ndarray,
+    sr: int,
+    whisper_model,
+    debug: bool,
+    max_workers: int,
+):
+    """
+    Internal function for parallel speech extraction.
+    Processes scenes in parallel using the pre-loaded and cleaned audio.
+    """
+    
+    def process_single_scene(idx, scene):
+        """Process a single scene."""
+        try:
+            t0 = float(scene["start_seconds"])
+            t1 = float(scene["end_seconds"])
+
+            audio_clip = slice_audio(clean_audio, sr, t0, t1)
+            
+            # Protect GPU operations with thread lock
+            with _whisper_lock:
+                speech = whisper_model.transcribe(audio_clip, fp16=False)['text']
+
+            new_scene = dict(scene)
+            new_scene["audio_speech"] = speech
+
+            if debug:
+                print(f"Scene {idx} ({t0:.2f}-{t1:.2f}s): {speech}")
+
+            return (idx, new_scene)
+        except Exception as e:
+            raise Exception(f"Scene {idx} failed: {str(e)}")
+    
+    # Pre-allocate results list to maintain order
+    results = [None] * len(scenes)
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all scenes
+        future_to_idx = {}
+        for idx, scene in enumerate(scenes):
+            future = executor.submit(process_single_scene, idx, scene)
+            future_to_idx[future] = idx
+        
+        if debug:
+            print(f"\n  ⏳ Processing {len(scenes)} scenes with {max_workers} parallel workers...\n")
+        
+        # Collect results as they complete
+        completed = 0
+        for future in as_completed(future_to_idx):
+            idx, new_scene = future.result()
+            results[idx] = new_scene
+            completed += 1
+            if debug:
+                print(f"  Progress: {completed}/{len(scenes)} scenes completed")
+    
+    return results
 
 # =========================================================
 # Example usage
